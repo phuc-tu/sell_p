@@ -22,7 +22,7 @@ function htmlUser(account) {
             <div class="admin__user-account-item-box">
     <h3>Ngày đăng ký</h3>
     <p>${
-        account.type === "admin" ? "20/11/2024" : account.userDate
+        account.type === "admin" ? "1/11/2024" : account.userDate
     }</p> <!-- Kiểm tra nếu là admin thì hiển thị ngày mặc định -->
 </div>
 
