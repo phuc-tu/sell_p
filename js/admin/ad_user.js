@@ -1,10 +1,10 @@
-var userAccount = JSON.parse(localStorage.getItem('userAccount'));
-var userList = document.querySelector('.admin__user-account-list');
+var userAccount = JSON.parse(localStorage.getItem("userAccount"));
+var userList = document.querySelector(".admin__user-account-list");
 
 function htmlUser(account) {
     var icon = {
-        admin: 'fa-solid fa-screwdriver-wrench',
-        user: 'fa-solid fa-user'
+        admin: "fa-solid fa-screwdriver-wrench",
+        user: "fa-solid fa-user",
     };
 
     var html = `
@@ -20,21 +20,31 @@ function htmlUser(account) {
                 <p>${account.userEmail}</p>
             </div>
             <div class="admin__user-account-item-box">
-                <h3>Ngày đăng ký</h3>
-                <p>${account.userDate}</p>
-            </div>
+    <h3>Ngày đăng ký</h3>
+    <p>${
+        account.type === "admin" ? "20/11/2024" : account.userDate
+    }</p> <!-- Kiểm tra nếu là admin thì hiển thị ngày mặc định -->
+</div>
+
+
             <div class="admin__user-account-item-box control">
                 <i class="fa-solid fa-ellipsis-vertical"></i>
                 <div class="admin__user-account-control">
-                    <div class="admin__user-account-control-item" onclick="showSeeInfoModal('${account.userEmail}')">
+                    <div class="admin__user-account-control-item" onclick="showSeeInfoModal('${
+                        account.userEmail
+                    }')">
                         <i class="uil uil-info-circle"></i>
                         <span>Xem thông tin</span>
                     </div>
-                    <div class="admin__user-account-control-item" onclick="showEditInfoModal('${account.userEmail}')">
+                    <div class="admin__user-account-control-item" onclick="showEditInfoModal('${
+                        account.userEmail
+                    }')">
                         <i class="uil uil-edit"></i>
                         <span>Sửa thông tin</span>
                     </div>
-                    <div class="admin__user-account-control-item" onclick="showDeleteAccountModal('${account.userEmail}')">
+                    <div class="admin__user-account-control-item" onclick="showDeleteAccountModal('${
+                        account.userEmail
+                    }')">
                         <i class="uil uil-user-times"></i>
                         <span>Xóa tài khoản</span>
                     </div>
@@ -46,130 +56,138 @@ function htmlUser(account) {
 }
 
 function showUserPage() {
-    userPage.style.display = 'block';
-    orderPage.style.display = 'none';
-    productPage.style.display = 'none';
-    statisticsPage.style.display = 'none';
+    userPage.style.display = "block";
+    orderPage.style.display = "none";
+    productPage.style.display = "none";
+    statisticsPage.style.display = "none";
 
-    showCurrentContent('user');
+    showCurrentContent("user");
 
-    var html = userAccount.map(function(account) {
+    var html = userAccount.map(function (account) {
         return htmlUser(account);
-    })
-    
-    var adminAccount = userAccount.filter(function(account) {
-        return account.type == 'admin';
     });
-    document.querySelector('.all-account-quantity').innerHTML = userAccount.length;
-    document.querySelector('.admin-account-quantity').innerHTML = adminAccount.length;
-    document.querySelector('.user-account-quantity').innerHTML = userAccount.length - adminAccount.length;
 
-    document.querySelector('.admin__content-header h3').innerHTML = 'Quản lý khách hàng';
-    userList.innerHTML = html.join('');
+    var adminAccount = userAccount.filter(function (account) {
+        return account.type == "admin";
+    });
+    document.querySelector(".all-account-quantity").innerHTML =
+        userAccount.length;
+    document.querySelector(".admin-account-quantity").innerHTML =
+        adminAccount.length;
+    document.querySelector(".user-account-quantity").innerHTML =
+        userAccount.length - adminAccount.length;
+
+    document.querySelector(".admin__content-header h3").innerHTML =
+        "Quản lý khách hàng";
+    userList.innerHTML = html.join("");
     showControl();
     autoCloseControlPage();
 }
 
 function showControl() {
-    var controlBtn = document.querySelectorAll('.admin__user-account-item-box.control');
+    var controlBtn = document.querySelectorAll(
+        ".admin__user-account-item-box.control"
+    );
     var prevControlPage;
-    controlBtn.forEach(function(control) {
-        control.addEventListener('click', function(event) {
-            var controlPage = control.querySelector('.admin__user-account-control');
-            controlPage.classList.toggle('active');
+    controlBtn.forEach(function (control) {
+        control.addEventListener("click", function (event) {
+            var controlPage = control.querySelector(
+                ".admin__user-account-control"
+            );
+            controlPage.classList.toggle("active");
 
             if (prevControlPage && prevControlPage != controlPage) {
-                prevControlPage.classList.remove('active');
+                prevControlPage.classList.remove("active");
             }
             prevControlPage = controlPage;
             event.stopPropagation();
-        })
+        });
     });
 }
 
 function autoCloseControlPage() {
-    var controlPage = document.querySelectorAll('.admin__user-account-control');
-    var content = document.querySelector('.admin__content-wrapper');
-    content.addEventListener('click', function(event) {
-        controlPage.forEach(function(item) {
-            item.classList.remove('active');
+    var controlPage = document.querySelectorAll(".admin__user-account-control");
+    var content = document.querySelector(".admin__content-wrapper");
+    content.addEventListener("click", function (event) {
+        controlPage.forEach(function (item) {
+            item.classList.remove("active");
         });
         event.stopPropagation();
-    })
+    });
 }
 
 // Search account
-var searhInfo = document.querySelector('.admin__user-search-input');
+var searhInfo = document.querySelector(".admin__user-search-input");
 
-searhInfo.addEventListener('keyup', function() {
-    var searchAccount = userAccount.filter(function(account) {
+searhInfo.addEventListener("keyup", function () {
+    var searchAccount = userAccount.filter(function (account) {
         return account.userName.toLowerCase().includes(searhInfo.value);
     });
 
-    var html = searchAccount.map(function(account) {
+    var html = searchAccount.map(function (account) {
         return htmlUser(account);
-    })
-    userList.innerHTML = html.join('');
-})
+    });
+    userList.innerHTML = html.join("");
+});
 
 // Show user control
-var userControlModal = document.getElementById('user-control-modal');
-var infoModal = document.getElementById('user-info');
-var deleteAccountModal = document.getElementById('delete-account');
+var userControlModal = document.getElementById("user-control-modal");
+var infoModal = document.getElementById("user-info");
+var deleteAccountModal = document.getElementById("delete-account");
 
 // See info
-var userFullName = document.getElementById('user-fullname');
-var userName = document.getElementById('user-name');
-var userEmail = document.getElementById('user-email');
-var userPass = document.getElementById('user-pass');
-var userAddress = document.getElementById('user-address');
-var userPhone = document.getElementById('user-phone');
-var userType = document.getElementById('user-type');
+var userFullName = document.getElementById("user-fullname");
+var userName = document.getElementById("user-name");
+var userEmail = document.getElementById("user-email");
+var userPass = document.getElementById("user-pass");
+var userAddress = document.getElementById("user-address");
+var userPhone = document.getElementById("user-phone");
+var userType = document.getElementById("user-type");
 var editIndex;
 
 function disableEdit() {
-    userFullName.classList.add('disable');
+    userFullName.classList.add("disable");
     userFullName.readOnly = true;
-    userName.classList.add('disable');
+    userName.classList.add("disable");
     userName.readOnly = true;
-    userEmail.classList.add('disable');
+    userEmail.classList.add("disable");
     userEmail.readOnly = true;
-    userPass.classList.add('disable');
+    userPass.classList.add("disable");
     userPass.readOnly = true;
-    userAddress.classList.add('disable');
+    userAddress.classList.add("disable");
     userAddress.readOnly = true;
-    userPhone.classList.add('disable');
+    userPhone.classList.add("disable");
     userPhone.readOnly = true;
-    userType.style.cursor = 'not-allowed';
+    userType.style.cursor = "not-allowed";
     userType.disabled = true;
 }
 
 function enableEdit() {
-    userFullName.classList.remove('disable');
+    userFullName.classList.remove("disable");
     userFullName.readOnly = false;
-    userName.classList.remove('disable');
+    userName.classList.remove("disable");
     userName.readOnly = false;
-    userEmail.classList.remove('disable');
+    userEmail.classList.remove("disable");
     userEmail.readOnly = false;
-    userPass.classList.remove('disable');
+    userPass.classList.remove("disable");
     userPass.readOnly = false;
-    userAddress.classList.remove('disable');
+    userAddress.classList.remove("disable");
     userAddress.readOnly = false;
-    userPhone.classList.remove('disable');
+    userPhone.classList.remove("disable");
     userPhone.readOnly = false;
-    userType.style.cursor = 'default';
+    userType.style.cursor = "default";
     userType.disabled = false;
 }
 
 function showSeeInfoModal(email) {
-    userControlModal.style.display = 'flex';
-    infoModal.style.display = 'block';
-    deleteAccountModal.style.display = 'none';
+    userControlModal.style.display = "flex";
+    infoModal.style.display = "block";
+    deleteAccountModal.style.display = "none";
 
-    var userInfo = userAccount.find(function(account, index) {
+    var userInfo = userAccount.find(function (account, index) {
         editIndex = index;
         return account.userEmail == email;
-    })
+    });
 
     userFullName.value = userInfo.userFullName;
     userName.value = userInfo.userName;
@@ -177,7 +195,7 @@ function showSeeInfoModal(email) {
     userPass.value = userInfo.userPassword;
     userAddress.value = userInfo.userAddress;
     userPhone.value = userInfo.userPhone;
-    
+
     for (var i = 0; i < userType.options.length; i++) {
         if (userType.options[i].value == userInfo.type) {
             userType.options[i].selected = true;
@@ -186,20 +204,29 @@ function showSeeInfoModal(email) {
     }
 
     disableEdit();
-    document.querySelector('#user-info .control-form__heading h3').innerHTML = 'Xem thông tin';
-    document.querySelector('#user-info .control-form___form-btn').style.display = 'none';
+    document.querySelector("#user-info .control-form__heading h3").innerHTML =
+        "Xem thông tin";
+    document.querySelector(
+        "#user-info .control-form___form-btn"
+    ).style.display = "none";
 }
 
 // Edit info
 function showEditInfoModal(email) {
     showSeeInfoModal(email);
     enableEdit();
-    document.querySelector('#user-info .control-form__heading h3').innerHTML = 'Sửa thông tin';
-    document.querySelector('#user-info .control-form___form-btn').style.display = 'block';
+    document.querySelector("#user-info .control-form__heading h3").innerHTML =
+        "Sửa thông tin";
+    document.querySelector(
+        "#user-info .control-form___form-btn"
+    ).style.display = "block";
 }
 
 function checkPhone() {
-    if (!userPhone.value || (parseInt(userPhone.value) && userPhone.value.length == 10)) {
+    if (
+        !userPhone.value ||
+        (parseInt(userPhone.value) && userPhone.value.length == 10)
+    ) {
         return true;
     } else {
         return false;
@@ -214,22 +241,28 @@ function EditInfo() {
         userAccount[editIndex].userPassword = userPass.value;
         userAccount[editIndex].userAddress = userAddress.value;
         userAccount[editIndex].userPhone = userPhone.value;
-        
+
         for (var i = 0; i < userType.options.length; i++) {
             if (userType.options[i].selected == true) {
                 userAccount[editIndex].type = userType.options[i].value;
                 break;
             }
         }
-        
-        localStorage.setItem('userAccount', JSON.stringify(userAccount));
-        document.querySelector('#user-info .error-phone').style.display = 'none';
 
-        showToast('success', 'Thành công!', `Đã lưu thông tin mới của tài khoản ${userAccount[editIndex].userEmail}`);
-        userControlModal.style.display = 'none';
+        localStorage.setItem("userAccount", JSON.stringify(userAccount));
+        document.querySelector("#user-info .error-phone").style.display =
+            "none";
+
+        showToast(
+            "success",
+            "Thành công!",
+            `Đã lưu thông tin mới của tài khoản ${userAccount[editIndex].userEmail}`
+        );
+        userControlModal.style.display = "none";
         showUserPage();
     } else {
-        document.querySelector('#user-info .error-phone').style.display = 'block';
+        document.querySelector("#user-info .error-phone").style.display =
+            "block";
     }
 }
 
@@ -237,38 +270,43 @@ function EditInfo() {
 var deleteIndex;
 
 function showDeleteAccountModal(email) {
-    userControlModal.style.display = 'flex';
-    deleteAccountModal.style.display = 'block';
-    infoModal.style.display = 'none';
+    userControlModal.style.display = "flex";
+    deleteAccountModal.style.display = "block";
+    infoModal.style.display = "none";
 
-    userAccount.forEach(function(account, index) {
+    userAccount.forEach(function (account, index) {
         if (account.userEmail == email) {
             deleteIndex = index;
         }
     });
 
-    document.querySelector('#delete-account .delete-form__question').innerHTML = `Bạn có muốn xóa tài khoản "${email}" không ?`;
+    document.querySelector(
+        "#delete-account .delete-form__question"
+    ).innerHTML = `Bạn có muốn xóa tài khoản "${email}" không ?`;
 }
 
 function isAdminAccount(account) {
-    if (account.type == 'admin')
-        return true;
+    if (account.type == "admin") return true;
     return false;
 }
 
 function deleteAccount() {
     var tmpAccount = userAccount[deleteIndex];
     if (isAdminAccount(tmpAccount)) {
-        showToast('fail', 'Thất bại!', 'Không có quyền xóa tài khoản admin!');
+        showToast("fail", "Thất bại!", "Không có quyền xóa tài khoản admin!");
     } else {
         for (var i = deleteIndex; i < userAccount.length - 1; i++) {
             userAccount[i] = userAccount[i + 1];
         }
         userAccount.length--;
-        localStorage.setItem('userAccount', JSON.stringify(userAccount));
-    
-        showToast('success', 'Thành công!', `Xóa thành công tài khoản ${tmpAccount.userEmail}`);   
+        localStorage.setItem("userAccount", JSON.stringify(userAccount));
+
+        showToast(
+            "success",
+            "Thành công!",
+            `Xóa thành công tài khoản ${tmpAccount.userEmail}`
+        );
     }
-    userControlModal.style.display = 'none';
+    userControlModal.style.display = "none";
     showUserPage();
 }
