@@ -56,7 +56,7 @@ if (!userAccount) {
             userFullName: "Admin",
             userPhone: "0123456789",
             userAddress: "Admin",
-            userDate: "20/10/2024",
+            userDate: new Date().toLocaleDateString("vi-VN"),
             type: "admin",
         },
         {
@@ -67,7 +67,7 @@ if (!userAccount) {
             userFullName: "Random",
             userPhone: "0123456789",
             userAddress: "Random",
-            userDate: "20/11/2024",
+            userDate: new Date().toLocaleDateString("vi-VN"),
             type: "user",
         },
     ];
