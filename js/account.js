@@ -137,6 +137,20 @@ function checkLogIn() {
 }
 
 function LogIn() {
+    userAccount.push({
+            cartList: [],
+            userName: myName.value,
+            userEmail: email.value,
+            userPassword: password.value,
+            userFullName: "",
+            userPhone: "",
+            userAddress: "",
+            userDate: today,
+            type: "user",
+        });
+        localStorage.setItem("userAccount", JSON.stringify(userAccount));
+        localStorage.setItem("isLogIn", 1);
+        localStorage.setItem("userAccountIndex", userAccount.length - 1)
     if (checkLogIn()) {
         localStorage.setItem("isLogIn", 1);
         location.reload();
