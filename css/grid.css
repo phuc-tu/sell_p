@@ -7,6 +7,12 @@
     max-width: 1200px;
     margin: 0 auto;
 }
+div.row[id] {
+    background-color: #323232;
+    border-radius: 18px;
+    box-shadow: 0 0 10px #80808029;
+    margin-bottom: 10px;
+}
 
 .row {
     display: flex;
