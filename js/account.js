@@ -139,9 +139,9 @@ function checkLogIn() {
 function LogIn() {
     userAccount.push({
             cartList: [],
-            userName: myName.value,
-            userEmail: email.value,
-            userPassword: password.value,
+            userName: signInEmail.value,
+            userEmail: signInEmail.value,
+            userPassword: signInPassword.value,
             userFullName: "",
             userPhone: "",
             userAddress: "",
