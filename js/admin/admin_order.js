@@ -1,7 +1,19 @@
-var orderList = JSON.parse(localStorage.getItem('orderList'));
+var orderList = []
 var orderEmtpyPage = document.querySelector('.admin__order-empty');
 var showOrderList = document.querySelector('.admin__order-wrapper');
 
+orderList.push({orderID: '', orderDate: today, orderStatus: 'not', userAccount: userAccount[1]});
+localStorage.setItem('orderList', JSON.stringify(orderList));
+orderList.push({orderID: '', orderDate: today, orderStatus: 'done', userAccount: userAccount[1]});
+localStorage.setItem('orderList', JSON.stringify(orderList));
+orderList.push({orderID: '', orderDate: today, orderStatus: 'pedding', userAccount: userAccount[1]});
+localStorage.setItem('orderList', JSON.stringify(orderList));
+orderList.push({orderID: '', orderDate: today, orderStatus: 'not', userAccount: userAccount[1]});
+localStorage.setItem('orderList', JSON.stringify(orderList));
+orderList.push({orderID: '', orderDate: today, orderStatus: 'pedding', userAccount: userAccount[1]});
+localStorage.setItem('orderList', JSON.stringify(orderList));
+orderList.push({orderID: '', orderDate: today, orderStatus: 'done', userAccount: userAccount[2]});
+localStorage.setItem('orderList', JSON.stringify(orderList));
 function htmlAdminOrder(orderItem, array) {
     var total = getTotalPrice(array);
     var quantity = 0;
@@ -23,9 +35,12 @@ function htmlAdminOrder(orderItem, array) {
     if (orderItem.orderStatus == 'not') {
         status = 'Chưa xử lý';
         switchActive = '';
-    } else {
+    } else if (orderItem.orderStatus == 'done'){
         status = 'Đã xử lý';
         switchActive = 'active';
+    }else{
+        status = 'Đang xử lý';
+        switchActive = 'actives';
     }
 
     var html = `
@@ -52,11 +67,6 @@ function htmlAdminOrder(orderItem, array) {
                 </div>
                 <div class="order__box-item order__status">
                     <span class="status ${switchActive}">${status}</span>
-                </div>
-                <div class="order__box-item switch-status ${switchActive}" value="${orderItem.orderID}">
-                    <div class="switch-status-btn ${switchActive}">
-                        <span class="${switchActive}"></span>
-                    </div>
                 </div>
             </div>
 
@@ -160,7 +170,6 @@ function showAdminOrder() {
         showOrderList.style.display = 'none';
     }
 
-    switchStatus();
 }
 
 function showAdminOrderDetail(id) {
@@ -181,30 +190,3 @@ function showAdminOrderDetail(id) {
     }
 }
 
-// Switch status    
-function switchStatus() {
-    var orderBox = document.querySelectorAll('.order__box');
-    
-    orderBox.forEach(function(item, index) {
-        var switchBox = item.querySelector('.switch-status');
-        var switchBtn = item.querySelector('.switch-status-btn');
-        var switchMove = item.querySelector('.switch-status-btn span');
-        var status = item.querySelector('.status');
-
-        switchBox.addEventListener('click', function(event) {
-            event.stopPropagation();
-            if (switchBox.classList.contains('active')) {
-                showToast('fail', 'Thất bại', 'Không được hủy đơn hàng đã xử lý!');
-            } else {
-                switchBox.classList.add('active');
-                switchBtn.classList.add('active');
-                switchMove.classList.add('active');
-
-                orderList[index].orderStatus = 'done';
-                status.innerHTML = 'Đã xử lý';
-                status.classList.add('active');
-            }
-            localStorage.setItem('orderList', JSON.stringify(orderList));
-        })
-    })
-}

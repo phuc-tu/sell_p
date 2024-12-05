@@ -41,39 +41,55 @@ function showSignInPassword() {
 }
 
 // tạo tài khoản
-var userAccount = JSON.parse(localStorage.getItem("userAccount"));
 var email = document.getElementById("email");
 var passwords = document.querySelectorAll(".password");
 var myName = document.getElementById("user-name");
 
-if (!userAccount) {
-    userAccount = [
-        {
-            cartList: [],
-            userName: "Admin",
-            userEmail: "admin@gmail.com",
-            userPassword: "admin",
-            userFullName: "Admin",
-            userPhone: "0123456789",
-            userAddress: "Admin",
-            userDate: new Date().toLocaleDateString("vi-VN"),
-            type: "admin",
-        },
-        {
-            cartList: [],
-            userName: "Random",
-            userEmail: "random@gmail.com",
-            userPassword: "random",
-            userFullName: "Random",
-            userPhone: "0123456789",
-            userAddress: "Random",
-            userDate: new Date().toLocaleDateString("vi-VN"),
-            type: "user",
-        },
-    ];
-    localStorage.setItem("userAccount", JSON.stringify(userAccount));
-}
+var  userAccount = [
+    {
+        cartList: [],
+        userName: "Admin",
+        userEmail: "admin@gmail.com",
+        userPassword: "admin",
+        userFullName: "Admin",
+        userPhone: "0123456789",
+        userAddress: "Admin",
+        userDate: new Date().toLocaleDateString("vi-VN"),
+        type: "admin",
+    },
+    {
+        cartList: [
+            {id: 'iphone003', category: 'iphone', name: 'iPhone 14 Plus 128GB', img: './img/product/iphone/iphone003.png', currentPrice: '26.490.000₫', oldPrice: '27.990.000₫', detailCategory: 'iPhone 14', state: 'new'},
+            {id: 'iphone004', category: 'iphone', name: 'iPhone 14 128GB', img: './img/product/iphone/iphone004.png', currentPrice: '23.490.000₫', oldPrice: '24.990.000₫', detailCategory: 'iPhone 14', state: 'new'},
+            {id: 'iphone005', category: 'iphone', name: 'iPhone 13 Pro Max 256GB', img: './img/product/iphone/iphone005.png', currentPrice: '29.990.000₫', oldPrice: '36.990.000₫', detailCategory: 'iPhone 13', state: 'old'},
+            {id: 'iphone006', category: 'iphone', name: 'iPhone 13 Pro 128GB', img: './img/product/iphone/iphone006.png', currentPrice: '24.990.000₫', oldPrice: '30.990.000₫', detailCategory: 'iPhone 13', state: 'old'},
+            {id: 'iphone005', category: 'iphone', name: 'iPhone 13 Pro Max 256GB', img: './img/product/iphone/iphone005.png', currentPrice: '29.990.000₫', oldPrice: '36.990.000₫', detailCategory: 'iPhone 13', state: 'old'},
+            {id: 'iphone006', category: 'iphone', name: 'iPhone 13 Pro 128GB', img: './img/product/iphone/iphone006.png', currentPrice: '24.990.000₫', oldPrice: '30.990.000₫', detailCategory: 'iPhone 13', state: 'old'},
+        ],
+        userName: "Xin Chào",
+        userEmail: "xinchao@gmail.com",
+        userPassword: "123",
+        userFullName: "123",
+        userPhone: "0123456789",
+        userAddress: "Random",
+        userDate: new Date().toLocaleDateString("vi-VN"),
+        type: "user",
+    },
+    {
+        cartList: [ {id: 'iphone005', category: 'iphone', name: 'iPhone 13 Pro Max 256GB', img: './img/product/iphone/iphone005.png', currentPrice: '29.990.000₫', oldPrice: '36.990.000₫', detailCategory: 'iPhone 13', state: 'old'},
+            {id: 'iphone006', category: 'iphone', name: 'iPhone 13 Pro 128GB', img: './img/product/iphone/iphone006.png', currentPrice: '24.990.000₫', oldPrice: '30.990.000₫', detailCategory: 'iPhone 13', state: 'old'},],
+        userName: "Test1",
+        userEmail: "test1@gmail.com",
+        userPassword: "123",
+        userFullName: "123",
+        userPhone: "0123456789",
+        userAddress: "Random",
+        userDate: new Date().toLocaleDateString("vi-VN"),
+        type: "user",
+    },
+];
 
+localStorage.setItem("userAccount", JSON.stringify(userAccount));
 function checkSameAccount(email) {
     for (var i = 0; i < userAccount.length; i++) {
         if (email == userAccount[i].userEmail) {
@@ -100,20 +116,10 @@ function createAccount() {
         return false;
     } else {
         document.querySelector(".error.password").innerHTML = "";
-        userAccount.push({
-            cartList: [],
-            userName: myName.value,
-            userEmail: email.value,
-            userPassword: password.value,
-            userFullName: "",
-            userPhone: "",
-            userAddress: "",
-            userDate: today,
-            type: "user",
-        });
+
         localStorage.setItem("userAccount", JSON.stringify(userAccount));
         localStorage.setItem("isLogIn", 1);
-        localStorage.setItem("userAccountIndex", userAccount.length - 1);
+        localStorage.setItem("userAccountIndex", 1);
     }
 }
 
@@ -122,45 +128,15 @@ var signInEmail = document.getElementById("sign-in-email");
 var signInPassword = document.getElementById("sign-in-password");
 
 function checkLogIn() {
-    if (userAccount != null) {
-        for (var i = 0; i < userAccount.length; i++) {
-            if (
-                signInEmail.value == userAccount[i].userEmail &&
-                signInPassword.value == userAccount[i].userPassword
-            ) {
-                localStorage.setItem("userAccountIndex", i);
-                return true;
-            }
-        }
-    }
-    return false;
+    localStorage.setItem("userAccountIndex", i);
+    return true;
 }
 
 function LogIn() {
-    userAccount.push({
-            cartList: [],
-            userName: signInEmail.value,
-            userEmail: signInEmail.value,
-            userPassword: signInPassword.value,
-            userFullName: "",
-            userPhone: "",
-            userAddress: "",
-            userDate: today,
-            type: "user",
-        });
-        localStorage.setItem("userAccount", JSON.stringify(userAccount));
         localStorage.setItem("isLogIn", 1);
-        localStorage.setItem("userAccountIndex", userAccount.length - 1)
-    if (checkLogIn()) {
+        localStorage.setItem("userAccountIndex", 1)
         localStorage.setItem("isLogIn", 1);
         location.reload();
-    } else {
-        showToast(
-            "fail",
-            "Thất bại!",
-            "Email hoặc mật khẩu không hợp lệ. Vui lòng kiểm tra lại!"
-        );
-    }
 }
 
 function LogOut() {

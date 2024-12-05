@@ -15,7 +15,15 @@ function showCurrentContent(name) {
     }
     contentBtn[index].classList.add('active');
 }
+function toggleDisplayThongke(showClass, hideClass) {
+    // Lấy các phần tử cần hiển thị và ẩn
+    const showElement = document.querySelector(`.${showClass}`);
+    const hideElement = document.querySelector(`.${hideClass}`);
 
+    // Kiểm tra và thay đổi trạng thái hiển thị
+    if (showElement) showElement.style.display = 'block';
+    if (hideElement) hideElement.style.display = 'none';
+}
 function backHomePage() {
     window.location.href = 'index.html';
 }

@@ -624,7 +624,32 @@ tr {
     margin-right: 14px;
     cursor: pointer;
 }
+.pagination{
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
 
+.pagination a{
+	text-decoration: none;
+	padding: 10px 13px;
+	margin: 2px;
+	color: black;
+
+	display: inline-block; 
+	border: 2px solid transparent;  
+}
+
+.pagination a.active{
+	background-color: #F8CD26;
+	font-weight: bold;
+	border-radius: 4px;
+
+}
+.pagination a:hover:not(.active){
+	border-radius: 4px;
+	border: 2px solid #F8CD26;
+}
 .delete-form__control-btn.delete {
     color: #fff;
     background-color: #ee3158;

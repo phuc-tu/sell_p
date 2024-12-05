@@ -58,11 +58,19 @@
                     <ul class="side-bar__top">
                         <li
                             class="side-bar__item"
-                            value="statistics"
+                            value="statisticsProduct"
                             onclick="showStatisticsPage()"
                         >
                             <i class="uil uil-chart-line"></i>
-                            <span class="side-bar__item-text">Thống kê</span>
+                            <span  class="side-bar__item-text">Thống kê sản phẩm</span>
+                        </li>
+                        <li
+                            class="side-bar__item"
+                            value="statisticsUser"
+                            onclick="showStatisticsPage1()"
+                        >
+                            <i class="uil uil-chart-line"></i>
+                            <span  class="side-bar__item-text">Thống kê khách hàng</span>
                         </li>
                         <li
                             class="side-bar__item"
@@ -107,6 +115,10 @@
                                 >Trở về trang chủ</span
                             >
                         </li>
+                        <li class="side-bar__item" value="">
+                            <i class="bx bx-log-out"></i>
+                            <span class="side-bar__item-text">Xin Chào</span>
+                        </li>
                         <li class="side-bar__item" value="" onclick="LogOut()">
                             <i class="bx bx-log-out"></i>
                             <span class="side-bar__item-text">Đăng xuất</span>
@@ -124,84 +136,375 @@
 
                     <!-- Statistics -->
                     <div class="admin__statis">
-                        <div class="admin__statis-sum">
-                            <div class="admin__statis-sum-box">
-                                <div
-                                    class="admin__statis-sum-box-icon sum-order"
-                                >
-                                    <span class="material-symbols-rounded"
-                                        >inventory</span
-                                    >
+                        <section class="thongke1" style="width: 100%;">
+                            <div class="filter" style="display: flex;gap: 10px;align-items: center;margin-left:100px;">
+                                <span><input type="radio" name="chon" value="ten" id="ten"  checked>Theo tên sản phẩm</span>
+                                <span><input type="radio" name="chon" value="loai" id="loai" >Theo loại sản phẩm</span>
+                                <input type="text" name="tenSp" id="tenSp" placeholder="Tên sản phẩm">
+                                <select name="loaiSp" id="loaiSp">
+                                    <option value="iPhone">IPhone</option>
+                                    <option value="iPad">IPad</option>
+                                    <option value="MacBook">MacBook</option>
+                                    <option value="AppleWatch">AppleWatch</option>
+                                </select>
+                                <div class="date">
+                                    <label for="start">Từ ngày: </label>
+                                    <input type="date" id="start" name="start" value="2023-11-24" min="2018-01-01" max="2023-12-31">
+                                    <label for="start">đến </label>
+                                    <input type="date" id="end" name="end" value="2023-11-30" min="2018-01-01" max="2023-12-31">
                                 </div>
-                                <div class="admin__statis-sum-box-info">
-                                    <h3>Đơn hàng</h3>
-                                    <p></p>
-                                </div>
+                                <a onclick="showThongkeTheoTen()" style="cursor: pointer; background: #000; color: #fff;font-weight: 700; padding: 2px; border-radius: 5px;text-decoration: none;" class="thongKe"></i>Thống kê</a>
                             </div>
-                            <div class="admin__statis-sum-box">
-                                <div
-                                    class="admin__statis-sum-box-icon sum-product"
-                                >
-                                    <i class="uil uil-apple"></i>
-                                </div>
-                                <div class="admin__statis-sum-box-info">
-                                    <h3>Sản phẩm đã bán</h3>
-                                    <p></p>
-                                </div>
-                            </div>
-                            <div class="admin__statis-sum-box">
-                                <div class="admin__statis-sum-box-icon total">
-                                    <span class="material-symbols-rounded"
-                                        >currency_bitcoin</span
-                                    >
-                                </div>
-                                <div class="admin__statis-sum-box-info">
-                                    <h3>Doanh Thu</h3>
-                                    <p></p>
-                                </div>
-                            </div>
-                        </div>
+                            
+                            <table style="width: 100%;margin: 40px 0;">
+                                <tr class="title" style="font-weight: 700;">
+                                    <th>Ảnh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Đơn giá</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Số lượng bán</th>
 
-                        <div class="admin__statis-filter">
-                            <h3>Chọn loại sản phẩm:</h3>
-                            <select
-                                name=""
-                                id=""
-                                onchange="showChart(this.value)"
-                            >
-                                <option value="all" selected>Tất cả</option>
-                                <option value="iphone">iPhone</option>
-                                <option value="ipad">iPad</option>
-                                <option value="macbook">MacBook</option>
-                                <option value="apple-watch">Apple Watch</option>
-                            </select>
-                        </div>
-
-                        <div class="admin__statis-chart-wrapper">
-                            <div class="admin__statis-chart-header">
-                                <h3>Biểu đồ thống kê</h3>
+                                </tr>
+                                <tr class="product">
+                                    <td><img style="width: 100px; height: 100px;" src="./img/product/ipad/ipad001.png" alt=""></td>
+                                    <td>iPad Pro M2 12.9" 128GB</td>
+                                    <td>35.990.000₫</td>
+                                    <td>71.980.000đ</td>
+                                    <td class="state">2</td>
+                                </tr>
+                                <tr class="product">
+                                    <td><img style="width: 100px; height: 100px;" src="./img/product/applewatch/watch012.png" alt=""></td>
+                                    <td>Apple Watch Ultra GPS + Cellular 49mm size S/M</td>
+                                    <td>23.990.000₫</td>
+                                    <td>215.910.000đ</td>
+                                    <td class="state">9</td>
+                                </tr>
+                                <tr class="product">
+                                    <td><img style="width: 100px; height: 100px;" src="./img/product/macbook/macbook009.png" alt=""></td>
+                                    <td>MacBook Air M2 2022 10-core 256GB</td>
+                                    <td>37.990.000₫</td>
+                                    <td>113.970.000đ</td>
+                                    <td class="state">3</td>
+                                </tr>
+                            </table>
+                            <div class="pagination">
+                                <a onclick="showThongke1()">&lt;</a>
+                                <a onclick="showThongke1()" class="active">1</a>
+                                <a onclick="showThongke2()">2</a>
+                                <a onclick="showThongke2()">&gt;</a>
                             </div>
-
-                            <div class="admin__statis-chart-note">
-                                <div class="admin__statis-chart-note-item">
-                                    <div></div>
-                                    :
-                                    <p>Đơn hàng(%)</p>
+                        </section>
+                        <section class="thongke2" style="width: 100%;">
+                            <div class="filter" style="display: flex;gap: 10px;align-items: center;margin-left:100px;">
+                                <span><input type="radio" name="chon" value="ten" id="ten"  checked>Theo tên sản phẩm</span>
+                                <span><input type="radio" name="chon" value="loai" id="loai" >Theo loại sản phẩm</span>
+                                <input type="text" name="tenSp" id="tenSp" placeholder="Tên sản phẩm">
+                                <select name="loaiSp" id="loaiSp">
+                                    <option value="iPhone">IPhone</option>
+                                    <option value="iPad">IPad</option>
+                                    <option value="MacBook">MacBook</option>
+                                    <option value="AppleWatch">AppleWatch</option>
+                                </select>
+                                <div class="date">
+                                    <label for="start">Từ ngày: </label>
+                                    <input type="date" id="start" name="start" value="2023-11-24" min="2018-01-01" max="2023-12-31">
+                                    <label for="start">đến </label>
+                                    <input type="date" id="end" name="end" value="2023-11-30" min="2018-01-01" max="2023-12-31">
                                 </div>
-                                <div class="admin__statis-chart-note-item">
-                                    <div></div>
-                                    :
-                                    <p>Sản phẩm bán được(%)</p>
-                                </div>
-                                <div class="admin__statis-chart-note-item">
-                                    <div></div>
-                                    :
-                                    <p>Doanh thu(%)</p>
-                                </div>
+                                <a onclick="showThongkeTheoTen" style="cursor: pointer; background: #000; color: #fff;font-weight: 700; padding: 2px; border-radius: 5px;text-decoration: none;" class="thongKe"></i>Thống kê</a>
                             </div>
+                            
+                            <table style="width: 100%;margin: 40px 0;">
+                                <tr class="title" style="font-weight: 700;">
+                                    <th>Ảnh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Đơn giá</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Số lượng bán</th>
 
-                            <div class="admin__statis-chart"></div>
-                        </div>
+                                </tr>
+                                <tr class="product">
+                                    <td><img style="width: 100px; height: 100px;" src="./img/product/iphone/iphone001.png" alt=""></td>
+                                    <td>iPhone 14 Pro Max 256GB</td>
+                                    <td>36.990.000₫</td>
+                                    <td>139.960.000đ</td>
+                                    <td class="state">4</td>
+                                </tr>
+                                <tr class="product">
+                                    <td><img style="width: 100px; height: 100px;" src="./img/product/iphone/iphone002.png" alt=""></td>
+                                    <td>iPhone 14 Pro 128GB</td>
+                                    <td>30.490.000₫</td>
+                                    <td>60.980.000đ</td>
+                                    <td class="state">2</td>
+                                </tr>
+                                <tr class="product">
+                                    <td><img style="width: 100px; height: 100px;" src="./img/product/macbook/macbook001.png" alt=""></td>
+                                    <td>MacBook Air M2 2022 8-core 256GB</td>
+                                    <td>28.990.000₫</td>
+                                    <td>129.950.000đ</td>
+                                    <td class="state">5</td>
+                                </tr>
+                            </table>
+                            <div class="pagination">
+                                <a onclick="showThongke1()">&lt;</a>
+                                <a onclick="showThongke1()" >1</a>
+                                <a onclick="showThongke2()" class="active">2</a>
+                                <a onclick="showThongke2()">&gt;</a>
+                            </div>
+                        </section>
+                        <section class="thongke3" style="width: 100%;">
+                            <div class="filter" style="display: flex;gap: 10px;align-items: center;margin-left:100px;">
+                                <span><input type="radio" name="chon" value="ten" id="ten"  checked>Theo tên sản phẩm</span>
+                                <span><input type="radio" name="chon" value="loai" id="loai" >Theo loại sản phẩm</span>
+                                <input type="text" name="tenSp" id="tenSp" placeholder="Tên sản phẩm">
+                                <select name="loaiSp" id="loaiSp">
+                                    <option value="iPhone">IPhone</option>
+                                    <option value="iPad">IPad</option>
+                                    <option value="MacBook">MacBook</option>
+                                    <option value="AppleWatch">AppleWatch</option>
+                                </select>
+                                <div class="date">
+                                    <label for="start">Từ ngày: </label>
+                                    <input type="date" id="start" name="start" value="2023-11-24" min="2018-01-01" max="2023-12-31">
+                                    <label for="start">đến </label>
+                                    <input type="date" id="end" name="end" value="2023-11-30" min="2018-01-01" max="2023-12-31">
+                                </div>
+                                <a href="admin.html?thongke1" style="cursor: pointer; background: #000; color: #fff;font-weight: 700; padding: 2px; border-radius: 5px;text-decoration: none;" class="thongKe"></i>Thống kê</a>
+                            </div>
+                            
+                            <table style="width: 100%;margin: 40px 0;">
+                                <tr class="title" style="font-weight: 700;">
+                                    <th>Ảnh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Đơn giá</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Số lượng bán</th>
+
+                                </tr>
+                                <tr class="product">
+                                    <td><img style="width: 100px; height: 100px;" src="./img/product/iphone/iphone001.png" alt=""></td>
+                                    <td>iPhone 14 Pro Max 256GB</td>
+                                    <td>36.990.000₫</td>
+                                    <td>139.960.000đ</td>
+                                    <td class="state">4</td>
+                                </tr>
+                                <tr class="product">
+                                    <td><img style="width: 100px; height: 100px;" src="./img/product/iphone/iphone002.png" alt=""></td>
+                                    <td>iPhone 14 Pro 128GB</td>
+                                    <td>30.490.000₫</td>
+                                    <td>60.980.000đ</td>
+                                    <td class="state">2</td>
+                                </tr>
+                                <tr class="product">
+                                    <td><img style="width: 100px; height: 100px;" src="./img/product/macbook/macbook001.png" alt=""></td>
+                                    <td>MacBook Air M2 2022 8-core 256GB</td>
+                                    <td>28.990.000₫</td>
+                                    <td>129.950.000đ</td>
+                                    <td class="state">5</td>
+                                </tr>
+                            </table>
+                            <div class="pagination">
+                                <a href="admin.html?thongke1">&lt;</a>
+                                <a href="admin.html?thongke1" >1</a>
+                                <a href="admin.html?thongke2" class="active">2</a>
+                                <a href="admin.html?thongke2">&gt;</a>
+                            </div>
+                        </section>
+                        <section class="thongke4" style="width: 100%;">
+                            <div class="filter" style="display: flex;gap: 10px;align-items: center;margin-left:100px;">
+                                <span><input type="radio" name="chon" value="ten" id="ten"  checked>Theo tên sản phẩm</span>
+                                <span><input type="radio" name="chon" value="loai" id="loai" >Theo loại sản phẩm</span>
+                                <input type="text" name="tenSp" id="tenSp" placeholder="Tên sản phẩm">
+                                <div class="date">
+                                    <label for="start">Từ ngày: </label>
+                                    <input type="date" id="start" name="start" value="2023-11-24" min="2018-01-01" max="2023-12-31">
+                                    <label for="start">đến </label>
+                                    <input type="date" id="end" name="end" value="2023-11-30" min="2018-01-01" max="2023-12-31">
+                                </div>
+                                <a onclick="showThongkeSpTheoTen()" style="cursor: pointer; background: #000; color: #fff;font-weight: 700; padding: 2px; border-radius: 5px;text-decoration: none;" class="thongKe"></i>Thống kê</a>
+                            </div>
+                            
+                            <table style="width: 100%;margin: 40px 0;">
+                                <!--noi dung tieu de-->
+                                <tr class="title">
+                                    <th>Mã đơn hàng</th>
+                                    <th>Tên Khách Hàng</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Số Sản Phẩm Đã Mua</th>
+                                </tr>
+                                <!--noi dung cac san pham-->
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td style="padding: 15px 0 15px 15px;"><a href="xemSanPhamMua.html">#1</a></td>
+                                    <td style="padding: 15px 0 15px 15px;">Nguyễn Ân</td>
+                                    <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
+                                    <td style="padding: 15px 0 15px 15px;">10</td>
+                                </tr>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td style="padding: 15px 0 15px 15px;"><a href="xemSanPhamMua.html">#1</a></td>
+                                    <td style="padding: 15px 0 15px 15px;">Thanh Điền</td>
+                                    <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
+                                    <td style="padding: 15px 0 15px 15px;">2</td>
+                                </tr>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td style="padding: 15px 0 15px 15px;"><a href="xemSanPhamMua.html">#1</a></td>
+                                    <td style="padding: 15px 0 15px 15px;">Trọng Hiếu</td>
+                                    <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
+                                    <td style="padding: 15px 0 15px 15px;">2</td>
+                                </tr>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td style="padding: 15px 0 15px 15px;"><a href="xemSanPhamMua.html">#1</a></td>
+                                    <td style="padding: 15px 0 15px 15px;">Thanh</td>
+                                    <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
+                                    <td style="padding: 15px 0 15px 15px;">2</td>
+                                </tr>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td style="padding: 15px 0 15px 15px;"><a href="xemSanPhamMua.html">#1</a></td>
+                                    <td style="padding: 15px 0 15px 15px;">Ngọc Hân</td>
+                                    <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
+                                    <td style="padding: 15px 0 15px 15px;">2</td>
+                                </tr>
+                                <!-- <tr class="product sum">
+                                    <td colspan="5" class="tong">Tổng</td>
+                                    <td>6</td>
+                                </tr> -->
+                            </table>
+                            <div class="pagination">
+                                <a onclick="showThongke4()">&lt;</a>
+                                <a onclick="showThongke4()" class="active">1</a>
+                                <a onclick="showThongke5()" >2</a>
+                                <a onclick="showThongke5()">&gt;</a>
+                            </div>
+                        </section>
+                        <section class="thongke5" style="width: 100%;">
+                            <div class="filter" style="display: flex;gap: 10px;align-items: center;margin-left:100px;">
+                                <span><input type="radio" name="chon" value="ten" id="ten"  checked>Theo tên sản phẩm</span>
+                                <span><input type="radio" name="chon" value="loai" id="loai" >Theo loại sản phẩm</span>
+                                <input type="text" name="tenSp" id="tenSp" placeholder="Tên sản phẩm">
+                                <div class="date">
+                                    <label for="start">Từ ngày: </label>
+                                    <input type="date" id="start" name="start" value="2023-11-24" min="2018-01-01" max="2023-12-31">
+                                    <label for="start">đến </label>
+                                    <input type="date" id="end" name="end" value="2023-11-30" min="2018-01-01" max="2023-12-31">
+                                </div>
+                                <a onclick="showThongkeSpTheoTen()" style="cursor: pointer; background: #000; color: #fff;font-weight: 700; padding: 2px; border-radius: 5px;text-decoration: none;" class="thongKe"></i>Thống kê</a>
+                            </div>
+                            
+                            <table style="width: 100%;margin: 40px 0;">
+                                <!--noi dung tieu de-->
+                                <tr class="title">
+                                    <th>Mã đơn hàng</th>
+                                    <th>Tên Khách Hàng</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Số Sản Phẩm Đã Mua</th>
+                                </tr>
+                                <!--noi dung cac san pham-->
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td style="padding: 15px 0 15px 15px;"><a href="xemSanPhamMua.html">#1</a></td>
+                                    <td style="padding: 15px 0 15px 15px;">Nguyễn Ân</td>
+                                    <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
+                                    <td style="padding: 15px 0 15px 15px;">2</td>
+                                </tr>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td style="padding: 15px 0 15px 15px;"><a href="xemSanPhamMua.html">#1</a></td>
+                                    <td style="padding: 15px 0 15px 15px;">Thanh Điền</td>
+                                    <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
+                                    <td style="padding: 15px 0 15px 15px;">2</td>
+                                </tr>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td style="padding: 15px 0 15px 15px;"><a href="xemSanPhamMua.html">#1</a></td>
+                                    <td style="padding: 15px 0 15px 15px;">Trọng Hiếu</td>
+                                    <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
+                                    <td style="padding: 15px 0 15px 15px;">2</td>
+                                </tr>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td style="padding: 15px 0 15px 15px;"><a href="xemSanPhamMua.html">#1</a></td>
+                                    <td style="padding: 15px 0 15px 15px;">Thanh</td>
+                                    <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
+                                    <td style="padding: 15px 0 15px 15px;">2</td>
+                                </tr>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td style="padding: 15px 0 15px 15px;"><a href="xemSanPhamMua.html">#1</a></td>
+                                    <td style="padding: 15px 0 15px 15px;">Ngọc Hân</td>
+                                    <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
+                                    <td style="padding: 15px 0 15px 15px;">2</td>
+                                </tr>
+                                <!-- <tr class="product sum">
+                                    <td colspan="5" class="tong">Tổng</td>
+                                    <td>6</td>
+                                </tr> -->
+                            </table>
+                            <div class="pagination">
+                                <a onclick="showThongke4()">&lt;</a>
+                                <a onclick="showThongke4()" >1</a>
+                                <a onclick="showThongke5()" class="active">2</a>
+                                <a onclick="showThongke5()">&gt;</a>
+                            </div>
+                        </section>
+                        <section class="thongke6" style="width: 100%;">
+                            <div class="filter" style="display: flex;gap: 10px;align-items: center;margin-left:100px;">
+                                <span><input type="radio" name="chon" value="ten" id="ten"  checked>Theo tên sản phẩm</span>
+                                <span><input type="radio" name="chon" value="loai" id="loai" >Theo loại sản phẩm</span>
+                                <input type="text" name="tenSp" id="tenSp" placeholder="Tên sản phẩm">
+                                <div class="date">
+                                    <label for="start">Từ ngày: </label>
+                                    <input type="date" id="start" name="start" value="2023-11-24" min="2018-01-01" max="2023-12-31">
+                                    <label for="start">đến </label>
+                                    <input type="date" id="end" name="end" value="2023-11-30" min="2018-01-01" max="2023-12-31">
+                                </div>
+                                <a onclick="showThongke4()" style="cursor: pointer; background: #000; color: #fff;font-weight: 700; padding: 2px; border-radius: 5px;text-decoration: none;" class="thongKe"></i>Thống kê</a>
+                            </div>
+                            
+                            <table style="width: 100%;margin: 40px 0;">
+                                <!--noi dung tieu de-->
+                                <tr class="title">
+                                    <th>Mã đơn hàng</th>
+                                    <th>Tên Khách Hàng</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Số Sản Phẩm Đã Mua</th>
+                                </tr>
+                                <!--noi dung cac san pham-->
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td style="padding: 15px 0 15px 15px;"><a href="xemSanPhamMua.html">#1</a></td>
+                                    <td style="padding: 15px 0 15px 15px;">Nguyễn Ân</td>
+                                    <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
+                                    <td style="padding: 15px 0 15px 15px;">2</td>
+                                </tr>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td style="padding: 15px 0 15px 15px;"><a href="xemSanPhamMua.html">#1</a></td>
+                                    <td style="padding: 15px 0 15px 15px;">Thanh Điền</td>
+                                    <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
+                                    <td style="padding: 15px 0 15px 15px;">2</td>
+                                </tr>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td style="padding: 15px 0 15px 15px;"><a href="xemSanPhamMua.html">#1</a></td>
+                                    <td style="padding: 15px 0 15px 15px;">Trọng Hiếu</td>
+                                    <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
+                                    <td style="padding: 15px 0 15px 15px;">2</td>
+                                </tr>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td style="padding: 15px 0 15px 15px;"><a href="xemSanPhamMua.html">#1</a></td>
+                                    <td style="padding: 15px 0 15px 15px;">Thanh</td>
+                                    <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
+                                    <td style="padding: 15px 0 15px 15px;">2</td>
+                                </tr>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td style="padding: 15px 0 15px 15px;"><a href="xemSanPhamMua.html">#1</a></td>
+                                    <td style="padding: 15px 0 15px 15px;">Ngọc Hân</td>
+                                    <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
+                                    <td style="padding: 15px 0 15px 15px;">2</td>
+                                </tr>
+                                <!-- <tr class="product sum">
+                                    <td colspan="5" class="tong">Tổng</td>
+                                    <td>6</td>
+                                </tr> -->
+                            </table>
+                            <div class="pagination">
+                                <a onclick="showThongke4()">&lt;</a>
+                                <a onclick="showThongke4()" >1</a>
+                                <a onclick="showThongke5()" class="active">2</a>
+                                <a onclick="showThongke5()">&gt;</a>
+                            </div>
+                        </section>
                     </div>
 
                     <!-- Product -->
@@ -323,6 +626,7 @@
                                 >
                                     <option value="all" selected>Tất cả</option>
                                     <option value="done">Đã xử lý</option>
+                                    <option value="peding">Đang xử lý</option>
                                     <option value="not">Chưa xử lý</option>
                                 </select>
                             </div>
@@ -870,7 +1174,7 @@
                                     class="delete-form__control-btn delete"
                                     onclick="deleteAccount()"
                                 >
-                                    Xóa
+                                    Có
                                 </button>
                             </div>
                         </div>

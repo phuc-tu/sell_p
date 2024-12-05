@@ -1,5 +1,48 @@
-var userAccount = JSON.parse(localStorage.getItem("userAccount"));
+
 var userList = document.querySelector(".admin__user-account-list");
+var  userAccount = [
+    {
+        cartList: [],
+        userName: "Admin",
+        userEmail: "admin@gmail.com",
+        userPassword: "admin",
+        userFullName: "Admin",
+        userPhone: "0123456789",
+        userAddress: "Admin",
+        userDate: new Date().toLocaleDateString("vi-VN"),
+        type: "admin",
+    },
+    {
+        cartList: [
+            {id: 'iphone003', category: 'iphone', name: 'iPhone 14 Plus 128GB', img: './img/product/iphone/iphone003.png', currentPrice: '26.490.000₫', oldPrice: '27.990.000₫', detailCategory: 'iPhone 14', state: 'new'},
+            {id: 'iphone004', category: 'iphone', name: 'iPhone 14 128GB', img: './img/product/iphone/iphone004.png', currentPrice: '23.490.000₫', oldPrice: '24.990.000₫', detailCategory: 'iPhone 14', state: 'new'},
+            {id: 'iphone005', category: 'iphone', name: 'iPhone 13 Pro Max 256GB', img: './img/product/iphone/iphone005.png', currentPrice: '29.990.000₫', oldPrice: '36.990.000₫', detailCategory: 'iPhone 13', state: 'old'},
+            {id: 'iphone006', category: 'iphone', name: 'iPhone 13 Pro 128GB', img: './img/product/iphone/iphone006.png', currentPrice: '24.990.000₫', oldPrice: '30.990.000₫', detailCategory: 'iPhone 13', state: 'old'},
+        ],
+        userName: "Xin chào",
+        userEmail: "xinchao@gmail.com",
+        userPassword: "123",
+        userFullName: "123",
+        userPhone: "0123456789",
+        userAddress: "Random",
+        userDate: new Date().toLocaleDateString("vi-VN"),
+        type: "user",
+    },
+    {
+        cartList: [ {id: 'iphone005', category: 'iphone', name: 'iPhone 13 Pro Max 256GB', img: './img/product/iphone/iphone005.png', currentPrice: '29.990.000₫', oldPrice: '36.990.000₫', detailCategory: 'iPhone 13', state: 'old'},
+            {id: 'iphone006', category: 'iphone', name: 'iPhone 13 Pro 128GB', img: './img/product/iphone/iphone006.png', currentPrice: '24.990.000₫', oldPrice: '30.990.000₫', detailCategory: 'iPhone 13', state: 'old'},],
+        userName: "Test1",
+        userEmail: "test1@gmail.com",
+        userPassword: "123",
+        userFullName: "123",
+        userPhone: "0123456789",
+        userAddress: "Random",
+        userDate: new Date().toLocaleDateString("vi-VN"),
+        type: "user",
+    },
+];
+
+localStorage.setItem("userAccount", JSON.stringify(userAccount));
 
 function htmlUser(account) {
     var icon = {
@@ -42,11 +85,18 @@ function htmlUser(account) {
                         <i class="uil uil-edit"></i>
                         <span>Sửa thông tin</span>
                     </div>
+                  
                     <div class="admin__user-account-control-item" onclick="showDeleteAccountModal('${
                         account.userEmail
                     }')">
                         <i class="uil uil-user-times"></i>
                         <span>Xóa tài khoản</span>
+                    </div>
+                      <div class="admin__user-account-control-item" onclick="showDeleteAccountModal('${
+                        account.userEmail
+                    }',1)">
+                        <i class="uil uil-edit"></i>
+                        <span>Khóa người dùng</span>
                     </div>
                 </div>
             </div>
@@ -249,7 +299,6 @@ function EditInfo() {
             }
         }
 
-        localStorage.setItem("userAccount", JSON.stringify(userAccount));
         document.querySelector("#user-info .error-phone").style.display =
             "none";
 
@@ -269,20 +318,21 @@ function EditInfo() {
 // Delete account
 var deleteIndex;
 
-function showDeleteAccountModal(email) {
+function showDeleteAccountModal(email,type) {
+    const tmp = type||0
     userControlModal.style.display = "flex";
     deleteAccountModal.style.display = "block";
     infoModal.style.display = "none";
-
-    userAccount.forEach(function (account, index) {
-        if (account.userEmail == email) {
-            deleteIndex = index;
-        }
-    });
-
-    document.querySelector(
-        "#delete-account .delete-form__question"
-    ).innerHTML = `Bạn có muốn xóa tài khoản "${email}" không ?`;
+    if(tmp===1)
+    {
+        document.querySelector(
+            "#delete-account .delete-form__question"
+        ).innerHTML = `Bạn có muốn khóa tài khoản "${email}" không ?`;
+    }else{
+        document.querySelector(
+            "#delete-account .delete-form__question"
+        ).innerHTML = `Bạn có muốn xóa tài khoản "${email}" không ?`;
+    }
 }
 
 function isAdminAccount(account) {
@@ -290,23 +340,24 @@ function isAdminAccount(account) {
     return false;
 }
 
-function deleteAccount() {
-    var tmpAccount = userAccount[deleteIndex];
-    if (isAdminAccount(tmpAccount)) {
-        showToast("fail", "Thất bại!", "Không có quyền xóa tài khoản admin!");
-    } else {
-        for (var i = deleteIndex; i < userAccount.length - 1; i++) {
-            userAccount[i] = userAccount[i + 1];
-        }
-        userAccount.length--;
-        localStorage.setItem("userAccount", JSON.stringify(userAccount));
-
+function deleteAccount(type) {
+    const tmpType = type || 0
+    if(tmpType===1){
         showToast(
             "success",
             "Thành công!",
-            `Xóa thành công tài khoản ${tmpAccount.userEmail}`
+            `khóa thành công tài khoản`
         );
+        userControlModal.style.display = "none";
+        showUserPage();
     }
-    userControlModal.style.display = "none";
-    showUserPage();
+    else{
+        showToast(
+            "success",
+            "Thành công!",
+            `Xóa thành công tài khoản`
+        );
+        userControlModal.style.display = "none";
+        showUserPage();
+    }
 }

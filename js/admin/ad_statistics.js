@@ -32,53 +32,97 @@ function showStatisticsPage() {
     statisticsPage.style.display = 'block';
     orderPage.style.display = 'none';
     productPage.style.display = 'none';
+    const thongke1 = document.querySelector(".thongke1")
+    const thongke2 = document.querySelector(".thongke2")
+    const thongke3 = document.querySelector(".thongke3")
+    const thongke4 = document.querySelector(".thongke4")
+    const thongke5 = document.querySelector(".thongke5")
+    const thongke6 = document.querySelector(".thongke6")
+    thongke2.style.display = "none"
+    thongke3.style.display = "none"
+    thongke1.style.display = "block"
+    thongke4.style.display = "none"
+    thongke5.style.display = "none"
+    thongke6.style.display = "none"
     userPage.style.display = 'none';
-
-    showCurrentContent('statistics');
+    showCurrentContent('statisticsProduct');
     document.querySelector('.admin__content-header h3').innerHTML = 'Thống kê';
-
-    var statisSumInfo = document.querySelectorAll('.admin__statis-sum-box-info p');
-    var orderQuantity = getOrderQuantity();
-    var productQuantity = getOrderProductQuantity();
-    var total = getTotalOrderPrice();
-
-    statisSumInfo[0].innerHTML = `Tổng: ${orderQuantity} đơn hàng`;
-    statisSumInfo[1].innerHTML = `Tổng: ${productQuantity} sản phẩm`;
-    statisSumInfo[2].innerHTML = `Tổng: ${total}`;
 }
-
+function showStatisticsPage1() {
+    statisticsPage.style.display = 'block';
+    orderPage.style.display = 'none';
+    productPage.style.display = 'none';
+    const thongke1 = document.querySelector(".thongke1")
+    const thongke2 = document.querySelector(".thongke2")
+    const thongke3 = document.querySelector(".thongke3")
+    const thongke4 = document.querySelector(".thongke4")
+    const thongke5 = document.querySelector(".thongke5")
+    const thongke6 = document.querySelector(".thongke6")
+    thongke2.style.display = "none"
+    thongke3.style.display = "none"
+    thongke1.style.display = "none"
+    thongke4.style.display = "block"
+    thongke5.style.display = "none"
+    thongke6.style.display = "none"
+    userPage.style.display = 'none';
+    showCurrentContent('statisticsUser');
+    document.querySelector('.admin__content-header h3').innerHTML = 'Thống kê';
+}
+function showThongke1(){
+    const thongke1 = document.querySelector(".thongke1")
+    const thongke2 = document.querySelector(".thongke2")
+    const thongke3 = document.querySelector(".thongke3")
+    thongke2.style.display = "none"
+    thongke3.style.display = "none"
+    thongke1.style.display = "block"
+}
+function showThongke2(){
+    const thongke1 = document.querySelector(".thongke1")
+    const thongke2 = document.querySelector(".thongke2")
+    const thongke3 = document.querySelector(".thongke3")
+    thongke2.style.display = "block"
+    thongke1.style.display = "none"
+     thongke3.style.display = "none"
+}
+function showThongke4(){
+    const thongke4 = document.querySelector(".thongke4")
+    const thongke5 = document.querySelector(".thongke5")
+    const thongke6 = document.querySelector(".thongke6")
+    thongke5.style.display = "none"
+    thongke6.style.display = "none"
+    thongke4.style.display = "block"
+}
+function showThongke5(){
+    const thongke4 = document.querySelector(".thongke4")
+    const thongke5 = document.querySelector(".thongke5")
+    const thongke6 = document.querySelector(".thongke6")
+    thongke5.style.display = "block"
+    thongke6.style.display = "none"
+    thongke4.style.display = "none"
+}
+function showThongkeSpTheoTen(){
+    const thongke4 = document.querySelector(".thongke4")
+    const thongke5 = document.querySelector(".thongke5")
+    const thongke6 = document.querySelector(".thongke6")
+    thongke5.style.display = "none"
+    thongke6.style.display = "block"
+    thongke4.style.display = "none"
+}
+function showThongkeTheoTen(){
+    const thongke1 = document.querySelector(".thongke1")
+    const thongke2 = document.querySelector(".thongke2")
+    const thongke3 = document.querySelector(".thongke3")
+    thongke2.style.display = "none"
+    thongke1.style.display = "none"
+     thongke3.style.display = "block"
+}
 // Statistics chart
 var orderByMonth = [], productByMonth = [], totalByMonth = [];
 var orderSum = getOrderQuantity();
 var productSum = getOrderProductQuantity();
 var totalSum = getTotalOrderPrice();
 
-function htmlChart(orderPercent, productPercent, totalPercent, month) {
-    var tmp1 = orderPercent, tmp2 = productPercent, tmp3 = totalPercent;
-    if (tmp1 != 0 && tmp2 != 0 && tmp3 != 0 && tmp1 <= 40 && tmp2 <= 40 && tmp3 <= 40) {
-        tmp1 += 40;
-        tmp2 += 40;
-        tmp3 += 40;
-    }
-
-    var html = `
-        <div class="admin__statis-chart-item">
-            <div class="admin__statis-chart-box">
-                <div style="--percent-height: ${tmp1}%">
-                    <span class="info-quantity">${orderPercent.toFixed(2)}</span>
-                </div>
-                <div style="--percent-height: ${tmp2}%">
-                    <span class="info-quantity">${productPercent.toFixed(2)}</span>
-                </div>
-                <div style="--percent-height: ${tmp3}%">
-                    <span class="info-quantity">${totalPercent.toFixed(2)}</span>
-                </div>
-            </div>
-            <span class="admin__statis-chart-month">Tháng ${month}</span>
-        </div>
-    `;
-    return html;
-}   
+ 
 
 function getOrderByCategory(category) {
     var categoryOrder = [];
@@ -155,32 +199,5 @@ function getDataByMonth(category) {
         orderByMonth.push(getOrderByMonth(i, category));
         productByMonth.push(getProductByMonth(i, category));
         totalByMonth.push(getToTalByMonth(i, category));
-    }
-}
-
-showChart('all');
-function showChart(category) {
-    if (orderList.length == 0) {
-        var emptyNoti = document.createElement('h3');
-        emptyNoti.innerHTML = 'Biểu đồ trống vì chưa có dữ liệu';
-        emptyNoti.style.textAlign = 'center';
-        emptyNoti.style.fontSize = '32px';
-        emptyNoti.style.margin = '32px auto';
-        document.querySelector('.admin__statis-chart').appendChild(emptyNoti);
-    } else {
-        var orderPercent, productPercent, totalPercent;
-        var orderSum = getOrderQuantity(), productSum = getOrderProductQuantity(), totalSum = covertPriceToNumber(getTotalOrderPrice());
-        var html = [];
-        getDataByMonth(category);
-
-        for (var i = 1; i <= 12; i++) {
-            orderPercent = (orderByMonth[i - 1] * 100) / orderSum;
-            productPercent = (productByMonth[i - 1] * 100) / productSum;
-            totalByMonth[i - 1] = covertPriceToNumber(totalByMonth[i - 1]);
-            totalPercent = (totalByMonth[i - 1] * 100) / totalSum;
-            html.push(htmlChart(orderPercent, productPercent, totalPercent, i));
-        }
-    
-        document.querySelector('.admin__statis-chart').innerHTML = html.join('');
     }
 }

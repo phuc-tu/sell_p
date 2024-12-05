@@ -57,9 +57,12 @@ function htmlOrderProduct(orderItem, array) {
     if (orderItem.orderStatus == 'not') {
         statusText = 'Chưa xử lý';
         status = '';
-    } else {
+    } else if (orderItem.orderStatus == 'done') {
         statusText = 'Đã xử lý';
         status = 'active';
+    }else{
+        statusText = 'Đang xử lý';
+        status = 'actives';
     }
 
     var html = `
@@ -131,10 +134,6 @@ function addToCart() {
             }, 1000);
         } else {
             showToast('success', 'Thành công!', 'Thêm vào giỏ thành công!');
-
-            userAccount[index].cartList.push(cartProduct);
-            localStorage.setItem('userAccount', JSON.stringify(userAccount));
-
             showCartQuantity();
         }
     });
@@ -282,10 +281,22 @@ function showCartProduct() {
 }
 
 //show order
-var orderList = JSON.parse(localStorage.getItem('orderList'));
-if (orderList == null) {
-    orderList = [];
-}
+var orderList = [];
+    
+orderList.push({orderID: '', orderDate: today, orderStatus: 'not', userAccount: userAccount[1]});
+localStorage.setItem('orderList', JSON.stringify(orderList));
+orderList.push({orderID: '', orderDate: today, orderStatus: 'done', userAccount: userAccount[1]});
+localStorage.setItem('orderList', JSON.stringify(orderList));
+orderList.push({orderID: '', orderDate: today, orderStatus: 'peding', userAccount: userAccount[1]});
+localStorage.setItem('orderList', JSON.stringify(orderList));
+orderList.push({orderID: '', orderDate: today, orderStatus: 'done', userAccount: userAccount[1]});
+localStorage.setItem('orderList', JSON.stringify(orderList));
+orderList.push({orderID: '', orderDate: today, orderStatus: 'peding', userAccount: userAccount[1]});
+localStorage.setItem('orderList', JSON.stringify(orderList));
+orderList.push({orderID: '', orderDate: today, orderStatus: 'not', userAccount: userAccount[1]});
+localStorage.setItem('orderList', JSON.stringify(orderList));
+orderList.push({orderID: '', orderDate: today, orderStatus: 'peding', userAccount: userAccount[2]});
+localStorage.setItem('orderList', JSON.stringify(orderList));
 
 function checkUser() {
     if (orderList.length > 0) {
@@ -395,24 +406,8 @@ function checkPhone() {
 
 // order product
 function orderProduct() {
-    if (checkPhone()) {
-        document.querySelector('.error-phone').style.display = 'none';
-
-        userAccount[index].userFullName = fullName.value;
-        userAccount[index].userPhone = phone.value;
-        userAccount[index].userAddress = address.value;
-
-        orderList.push({orderID: '', orderDate: today, orderStatus: 'not', userAccount: userAccount[index]});
-        localStorage.setItem('orderList', JSON.stringify(orderList));
-
-        userAccount[index].cartList = [];
-        localStorage.setItem('userAccount', JSON.stringify(userAccount));
-
-        alert('Đặt hàng thành công!');
-        window.location.href = 'index.html?order';
-    } else {
-        document.querySelector('.error-phone').style.display = 'block';
-    }
+    alert('Đặt hàng thành công!');
+    window.location.href = 'index.html?order';
 }
 
 //show order product

@@ -165,7 +165,9 @@ html::-webkit-scrollbar-thumb,
 .status.active {
     background-color: #0be881;
 }
-
+.status.actives {
+    background-color: #d8b73d;
+}
 /* empty */
 .empty {
     text-align: center;

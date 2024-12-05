@@ -259,10 +259,13 @@
     font-size: 14px;
     margin-bottom: 4px;
 }
-
+#lock-account{
+    display:none;
+}
 /* Cart*/
 .cart,
-.order {
+.order,
+.advSearch {
     margin: var(--header-height) 0 150px 0;
     display: none;
 }
