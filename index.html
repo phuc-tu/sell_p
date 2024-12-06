@@ -86,7 +86,16 @@
                                 >Tìm kiếm nâng cao</a
                             >
                             </li>
-
+                            <li class="header__navbar-item" >
+                                <a
+                                href="index.html?order"
+                                class="header__navbar-item-link"
+                                onclick="showOrderPage()"
+                                >Đơn hàng của bạn</a
+                            >
+                                
+                            </li>
+                            
                             <div class="header__cart" onclick="showCartPage()">
                                 <span
                                     class="header__cart-icon material-symbols-rounded"
@@ -106,12 +115,6 @@
                                 <div class="header__user">
                                     <span class="header__user-name"></span>
                                     <div class="header__group-menu">
-                                        <a
-                                            href="index.html?order"
-                                            class="header__user-order"
-                                            onclick="showOrderPage()"
-                                            >Đơn hàng của bạn</a
-                                        >
                                         <div
                                             id="log-out"
                                             class="header__log-out"

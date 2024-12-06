@@ -116,8 +116,8 @@
                             >
                         </li>
                         <li class="side-bar__item" value="">
-                            <i class="bx bx-log-out"></i>
-                            <span class="side-bar__item-text">Xin Chào</span>
+                            <i class='bx bxs-user-circle' ></i>
+                            <span class="side-bar__item-text">Mr Thanh</span>
                         </li>
                         <li class="side-bar__item" value="" onclick="LogOut()">
                             <i class="bx bx-log-out"></i>
@@ -138,10 +138,10 @@
                     <div class="admin__statis">
                         <section class="thongke1" style="width: 100%;">
                             <div class="filter" style="display: flex;gap: 10px;align-items: center;margin-left:100px;">
-                                <span><input type="radio" name="chon" value="ten" id="ten"  checked>Theo tên sản phẩm</span>
-                                <span><input type="radio" name="chon" value="loai" id="loai" >Theo loại sản phẩm</span>
-                                <input type="text" name="tenSp" id="tenSp" placeholder="Tên sản phẩm">
-                                <select name="loaiSp" id="loaiSp">
+                                <span><input type="radio" name="chon" value="ten" checked onchange="handleSearchTypeChange(this)">Theo tên sản phẩm</span>
+                                <span><input type="radio" name="chon" value="loai" onchange="handleSearchTypeChange(this)">Theo loại sản phẩm</span>
+                                <input type="text" name="tenSp" class="tenSp" placeholder="Tên sản phẩm">
+                                <select name="loaiSp" class="loaiSp" style="display: none;">
                                     <option value="iPhone">IPhone</option>
                                     <option value="iPad">IPad</option>
                                     <option value="MacBook">MacBook</option>
@@ -163,7 +163,7 @@
                                     <th>Đơn giá</th>
                                     <th>Tổng tiền</th>
                                     <th>Số lượng bán</th>
-
+                                    <th>Hóa đơn</th>
                                 </tr>
                                 <tr class="product">
                                     <td><img style="width: 100px; height: 100px;" src="./img/product/ipad/ipad001.png" alt=""></td>
@@ -171,6 +171,7 @@
                                     <td>35.990.000₫</td>
                                     <td>71.980.000đ</td>
                                     <td class="state">2</td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
                                 </tr>
                                 <tr class="product">
                                     <td><img style="width: 100px; height: 100px;" src="./img/product/applewatch/watch012.png" alt=""></td>
@@ -178,6 +179,7 @@
                                     <td>23.990.000₫</td>
                                     <td>215.910.000đ</td>
                                     <td class="state">9</td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
                                 </tr>
                                 <tr class="product">
                                     <td><img style="width: 100px; height: 100px;" src="./img/product/macbook/macbook009.png" alt=""></td>
@@ -185,6 +187,7 @@
                                     <td>37.990.000₫</td>
                                     <td>113.970.000đ</td>
                                     <td class="state">3</td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
                                 </tr>
                             </table>
                             <div class="pagination">
@@ -196,10 +199,10 @@
                         </section>
                         <section class="thongke2" style="width: 100%;">
                             <div class="filter" style="display: flex;gap: 10px;align-items: center;margin-left:100px;">
-                                <span><input type="radio" name="chon" value="ten" id="ten"  checked>Theo tên sản phẩm</span>
-                                <span><input type="radio" name="chon" value="loai" id="loai" >Theo loại sản phẩm</span>
-                                <input type="text" name="tenSp" id="tenSp" placeholder="Tên sản phẩm">
-                                <select name="loaiSp" id="loaiSp">
+                                <span><input type="radio" name="chon" value="ten" checked onchange="handleSearchTypeChange(this)">Theo tên sản phẩm</span>
+                                <span><input type="radio" name="chon" value="loai" onchange="handleSearchTypeChange(this)">Theo loại sản phẩm</span>
+                                <input type="text" name="tenSp" class="tenSp" placeholder="Tên sản phẩm">
+                                <select name="loaiSp" class="loaiSp" style="display: none;">
                                     <option value="iPhone">IPhone</option>
                                     <option value="iPad">IPad</option>
                                     <option value="MacBook">MacBook</option>
@@ -229,6 +232,7 @@
                                     <td>36.990.000₫</td>
                                     <td>139.960.000đ</td>
                                     <td class="state">4</td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
                                 </tr>
                                 <tr class="product">
                                     <td><img style="width: 100px; height: 100px;" src="./img/product/iphone/iphone002.png" alt=""></td>
@@ -236,6 +240,7 @@
                                     <td>30.490.000₫</td>
                                     <td>60.980.000đ</td>
                                     <td class="state">2</td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
                                 </tr>
                                 <tr class="product">
                                     <td><img style="width: 100px; height: 100px;" src="./img/product/macbook/macbook001.png" alt=""></td>
@@ -243,6 +248,7 @@
                                     <td>28.990.000₫</td>
                                     <td>129.950.000đ</td>
                                     <td class="state">5</td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
                                 </tr>
                             </table>
                             <div class="pagination">
@@ -254,10 +260,10 @@
                         </section>
                         <section class="thongke3" style="width: 100%;">
                             <div class="filter" style="display: flex;gap: 10px;align-items: center;margin-left:100px;">
-                                <span><input type="radio" name="chon" value="ten" id="ten"  checked>Theo tên sản phẩm</span>
-                                <span><input type="radio" name="chon" value="loai" id="loai" >Theo loại sản phẩm</span>
-                                <input type="text" name="tenSp" id="tenSp" placeholder="Tên sản phẩm">
-                                <select name="loaiSp" id="loaiSp">
+                                <span><input type="radio" name="chon" value="ten" checked onchange="handleSearchTypeChange(this)">Theo tên sản phẩm</span>
+                                <span><input type="radio" name="chon" value="loai" onchange="handleSearchTypeChange(this)">Theo loại sản phẩm</span>
+                                <input type="text" name="tenSp" class="tenSp" placeholder="Tên sản phẩm">
+                                <select name="loaiSp" class="loaiSp" style="display: none;">
                                     <option value="iPhone">IPhone</option>
                                     <option value="iPad">IPad</option>
                                     <option value="MacBook">MacBook</option>
@@ -287,6 +293,7 @@
                                     <td>36.990.000₫</td>
                                     <td>139.960.000đ</td>
                                     <td class="state">4</td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
                                 </tr>
                                 <tr class="product">
                                     <td><img style="width: 100px; height: 100px;" src="./img/product/iphone/iphone002.png" alt=""></td>
@@ -294,6 +301,7 @@
                                     <td>30.490.000₫</td>
                                     <td>60.980.000đ</td>
                                     <td class="state">2</td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
                                 </tr>
                                 <tr class="product">
                                     <td><img style="width: 100px; height: 100px;" src="./img/product/macbook/macbook001.png" alt=""></td>
@@ -301,6 +309,7 @@
                                     <td>28.990.000₫</td>
                                     <td>129.950.000đ</td>
                                     <td class="state">5</td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
                                 </tr>
                             </table>
                             <div class="pagination">
@@ -312,9 +321,15 @@
                         </section>
                         <section class="thongke4" style="width: 100%;">
                             <div class="filter" style="display: flex;gap: 10px;align-items: center;margin-left:100px;">
-                                <span><input type="radio" name="chon" value="ten" id="ten"  checked>Theo tên sản phẩm</span>
-                                <span><input type="radio" name="chon" value="loai" id="loai" >Theo loại sản phẩm</span>
-                                <input type="text" name="tenSp" id="tenSp" placeholder="Tên sản phẩm">
+                                <span><input type="radio" name="chon" value="ten" checked onchange="handleSearchTypeChange(this)">Top những người mua hàng nhiều nhất</span>
+                                <span><input type="radio" name="chon" value="loai" onchange="handleSearchTypeChange(this)">Theo loại sản phẩm</span>
+                                <input type="text" name="tenSp" class="tenSp" placeholder="Tên sản phẩm">
+                                <select name="loaiSp" class="loaiSp" style="display: none;">
+                                    <option value="iPhone">IPhone</option>
+                                    <option value="iPad">IPad</option>
+                                    <option value="MacBook">MacBook</option>
+                                    <option value="AppleWatch">AppleWatch</option>
+                                </select>
                                 <div class="date">
                                     <label for="start">Từ ngày: </label>
                                     <input type="date" id="start" name="start" value="2023-11-24" min="2018-01-01" max="2023-12-31">
@@ -377,8 +392,8 @@
                         </section>
                         <section class="thongke5" style="width: 100%;">
                             <div class="filter" style="display: flex;gap: 10px;align-items: center;margin-left:100px;">
-                                <span><input type="radio" name="chon" value="ten" id="ten"  checked>Theo tên sản phẩm</span>
-                                <span><input type="radio" name="chon" value="loai" id="loai" >Theo loại sản phẩm</span>
+                                <span><input type="radio" name="chon" value="ten"   checked>Top những người mua hàng nhiều nhất</span>
+                                <span><input type="radio" name="chon" value="loai" >Theo loại sản phẩm</span>
                                 <input type="text" name="tenSp" id="tenSp" placeholder="Tên sản phẩm">
                                 <div class="date">
                                     <label for="start">Từ ngày: </label>
@@ -442,8 +457,8 @@
                         </section>
                         <section class="thongke6" style="width: 100%;">
                             <div class="filter" style="display: flex;gap: 10px;align-items: center;margin-left:100px;">
-                                <span><input type="radio" name="chon" value="ten" id="ten"  checked>Theo tên sản phẩm</span>
-                                <span><input type="radio" name="chon" value="loai" id="loai" >Theo loại sản phẩm</span>
+                                <span><input type="radio" name="chon" value="ten"   checked>Top những người mua hàng nhiều nhất</span>
+                                <span><input type="radio" name="chon" value="loai" >Theo loại sản phẩm</span>
                                 <input type="text" name="tenSp" id="tenSp" placeholder="Tên sản phẩm">
                                 <div class="date">
                                     <label for="start">Từ ngày: </label>
@@ -622,13 +637,14 @@
                                 <select
                                     name=""
                                     id=""
-                                    onchange="showAdminOrder()"
+                                  
                                 >
                                     <option value="all" selected>Tất cả</option>
                                     <option value="done">Đã xử lý</option>
                                     <option value="peding">Đang xử lý</option>
                                     <option value="not">Chưa xử lý</option>
                                 </select>
+                                <button style="cursor: pointer; background: #000; color: #fff;font-weight: 700; padding: 2px; border-radius: 5px;text-decoration: none;">Lọc</button>
                             </div>
                         </div>
 
@@ -647,7 +663,6 @@
                             />
                         </div>
                     </div>
-
                     <!-- User -->
                     <div class="admin__user">
                         <div class="admin__user-wrapper">
@@ -1172,10 +1187,18 @@
                                 </button>
                                 <button
                                     class="delete-form__control-btn delete"
+                                    id="deleteBtn"
                                     onclick="deleteAccount()"
                                 >
-                                    Có
+                                    Xóa
                                 </button>
+                                <button
+                                class="delete-form__control-btn btn-lock"
+                                id="lockBtn"
+                                onclick="deleteAccount(1)"
+                            >
+                                Khóa
+                            </button>
                             </div>
                         </div>
                     </div>

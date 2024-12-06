@@ -7,6 +7,7 @@ function getOrderQuantity() {
     return orderList.length;
 }
 
+
 function getOrderProductQuantity() {
     var quantity = 0;
     orderList.forEach(function(item) {
@@ -199,5 +200,22 @@ function getDataByMonth(category) {
         orderByMonth.push(getOrderByMonth(i, category));
         productByMonth.push(getProductByMonth(i, category));
         totalByMonth.push(getToTalByMonth(i, category));
+    }
+}
+function handleSearchTypeChange(radio) {
+    // Lấy div cha của phần tử radio được chọn
+    const container = radio.closest('.thongke1, .thongke2, .thongke3, .thongke4');
+    
+    // Tìm input và select trong div hiện tại
+    const inputTen = container.querySelector('.tenSp');
+    const selectLoai = container.querySelector('.loaiSp');
+
+    // Kiểm tra giá trị radio để hiển thị hoặc ẩn các phần tử
+    if (radio.value === "ten") {
+        inputTen.style.display = 'block';
+        selectLoai.style.display = 'none';
+    } else if (radio.value === "loai") {
+        inputTen.style.display = 'none';
+        selectLoai.style.display = 'block';
     }
 }

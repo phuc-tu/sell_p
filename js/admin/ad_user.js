@@ -9,7 +9,7 @@ var  userAccount = [
         userFullName: "Admin",
         userPhone: "0123456789",
         userAddress: "Admin",
-        userDate: new Date().toLocaleDateString("vi-VN"),
+        userDate: "1/11/2023",
         type: "admin",
     },
     {
@@ -25,7 +25,7 @@ var  userAccount = [
         userFullName: "123",
         userPhone: "0123456789",
         userAddress: "Random",
-        userDate: new Date().toLocaleDateString("vi-VN"),
+        userDate: "1/12/2024",
         type: "user",
     },
     {
@@ -37,7 +37,7 @@ var  userAccount = [
         userFullName: "123",
         userPhone: "0123456789",
         userAddress: "Random",
-        userDate: new Date().toLocaleDateString("vi-VN"),
+        userDate: "1/12/2024",
         type: "user",
     },
 ];
@@ -61,6 +61,9 @@ function htmlUser(account) {
             <div class="admin__user-account-item-box">
                 <h3>${account.userName}</h3>
                 <p>${account.userEmail}</p>
+            </div>
+            <div class="admin__user-account-item-box lock-user" style="display:none" >
+               <i class='bx bxs-lock'></i>
             </div>
             <div class="admin__user-account-item-box">
     <h3>Ngày đăng ký</h3>
@@ -323,12 +326,19 @@ function showDeleteAccountModal(email,type) {
     userControlModal.style.display = "flex";
     deleteAccountModal.style.display = "block";
     infoModal.style.display = "none";
+    const deleteBtn = document.getElementById('deleteBtn');
+    const lockBtn = document.getElementById('lockBtn');
     if(tmp===1)
     {
+
+        deleteBtn.style.display = 'none';        
+            lockBtn.style.display = 'inline-block';   
         document.querySelector(
             "#delete-account .delete-form__question"
         ).innerHTML = `Bạn có muốn khóa tài khoản "${email}" không ?`;
     }else{
+        deleteBtn.style.display = 'inline-block';  
+        lockBtn.style.display = 'none';     
         document.querySelector(
             "#delete-account .delete-form__question"
         ).innerHTML = `Bạn có muốn xóa tài khoản "${email}" không ?`;

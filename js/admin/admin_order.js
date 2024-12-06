@@ -2,17 +2,17 @@ var orderList = []
 var orderEmtpyPage = document.querySelector('.admin__order-empty');
 var showOrderList = document.querySelector('.admin__order-wrapper');
 
-orderList.push({orderID: '', orderDate: today, orderStatus: 'not', userAccount: userAccount[1]});
+orderList.push({orderID: '1', orderDate: "01/12/2024", orderStatus: 'not', userAccount: userAccount[1]});
 localStorage.setItem('orderList', JSON.stringify(orderList));
-orderList.push({orderID: '', orderDate: today, orderStatus: 'done', userAccount: userAccount[1]});
+orderList.push({orderID: '2', orderDate: "01/12/2024", orderStatus: 'done', userAccount: userAccount[1]});
 localStorage.setItem('orderList', JSON.stringify(orderList));
-orderList.push({orderID: '', orderDate: today, orderStatus: 'pedding', userAccount: userAccount[1]});
+orderList.push({orderID: '3', orderDate: "01/12/2024", orderStatus: 'pedding', userAccount: userAccount[1]});
 localStorage.setItem('orderList', JSON.stringify(orderList));
-orderList.push({orderID: '', orderDate: today, orderStatus: 'not', userAccount: userAccount[1]});
+orderList.push({orderID: '4', orderDate: "01/12/2024", orderStatus: 'not', userAccount: userAccount[1]});
 localStorage.setItem('orderList', JSON.stringify(orderList));
-orderList.push({orderID: '', orderDate: today, orderStatus: 'pedding', userAccount: userAccount[1]});
+orderList.push({orderID: '5', orderDate: "01/12/2024", orderStatus: 'pedding', userAccount: userAccount[1]});
 localStorage.setItem('orderList', JSON.stringify(orderList));
-orderList.push({orderID: '', orderDate: today, orderStatus: 'done', userAccount: userAccount[2]});
+orderList.push({orderID: '6', orderDate: "01/12/2024", orderStatus: 'done', userAccount: userAccount[2]});
 localStorage.setItem('orderList', JSON.stringify(orderList));
 function htmlAdminOrder(orderItem, array) {
     var total = getTotalPrice(array);
@@ -60,6 +60,10 @@ function htmlAdminOrder(orderItem, array) {
                 <div class="order__box-item">
                     <h3>Tên người dùng</h3>
                     <span>${orderItem.userAccount.userName}</span>
+                </div>
+                <div class="order__box-item">
+                    <h3>Địa chỉ</h3>
+                    <span  style="text-align: start;">123 Nguyễn Thị Minh Khai, Quận 1, Tp HCM</span>
                 </div>
                 <div class="order__box-item">
                     <h3>Ngày đặt hàng</h3>

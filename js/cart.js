@@ -39,7 +39,7 @@ function htmlCartProduct(product) {
 function htmlOrderProduct(orderItem, array) {
     var total = getTotalPrice(array);
     var quantity = 0;
-
+    console.log('orderItem', orderItem)
     var productList = '';
     for (var i = 0; i < array.length; i++) {
         productList += `
@@ -283,19 +283,19 @@ function showCartProduct() {
 //show order
 var orderList = [];
     
-orderList.push({orderID: '', orderDate: today, orderStatus: 'not', userAccount: userAccount[1]});
+orderList.push({orderID: '1', orderDate: "01/12/2024", orderStatus: 'not', userAccount: userAccount[1]});
 localStorage.setItem('orderList', JSON.stringify(orderList));
-orderList.push({orderID: '', orderDate: today, orderStatus: 'done', userAccount: userAccount[1]});
+orderList.push({orderID: '2', orderDate: "01/12/2024", orderStatus: 'done', userAccount: userAccount[1]});
 localStorage.setItem('orderList', JSON.stringify(orderList));
-orderList.push({orderID: '', orderDate: today, orderStatus: 'peding', userAccount: userAccount[1]});
+orderList.push({orderID: '3', orderDate: "01/12/2024", orderStatus: 'peding', userAccount: userAccount[1]});
 localStorage.setItem('orderList', JSON.stringify(orderList));
-orderList.push({orderID: '', orderDate: today, orderStatus: 'done', userAccount: userAccount[1]});
+orderList.push({orderID: '4', orderDate: "01/12/2024", orderStatus: 'done', userAccount: userAccount[1]});
 localStorage.setItem('orderList', JSON.stringify(orderList));
-orderList.push({orderID: '', orderDate: today, orderStatus: 'peding', userAccount: userAccount[1]});
+orderList.push({orderID: '5', orderDate: "01/12/2024", orderStatus: 'peding', userAccount: userAccount[1]});
 localStorage.setItem('orderList', JSON.stringify(orderList));
-orderList.push({orderID: '', orderDate: today, orderStatus: 'not', userAccount: userAccount[1]});
+orderList.push({orderID: '6', orderDate: "01/12/2024", orderStatus: 'not', userAccount: userAccount[1]});
 localStorage.setItem('orderList', JSON.stringify(orderList));
-orderList.push({orderID: '', orderDate: today, orderStatus: 'peding', userAccount: userAccount[2]});
+orderList.push({orderID: '7', orderDate: "01/12/2024", orderStatus: 'peding', userAccount: userAccount[2]});
 localStorage.setItem('orderList', JSON.stringify(orderList));
 
 function checkUser() {
