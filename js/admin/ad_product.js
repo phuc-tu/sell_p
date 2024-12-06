@@ -13,16 +13,19 @@ function htmlAdminProduct(product) {
     var html = `
         <tbody class="admin__product-item">
             <tr>
-                <td>
-                    <img src="${product.img}" alt="">
-                </td>
-                <td>#${product.id}</td>
-                <td class="td-name">${product.name}</td>
-                <td>${product.category}</td>
-                <td>${product.detailCategory}</td>
-                <td>${product.oldPrice}</td>
-                <td>${product.currentPrice}</td>
-                <td>
+                    <td>
+                        <img src="${product.img}" alt="">
+                    </td>
+                    <td>#${product.id}</td>
+                    <td class="td-name">${product.name}</td>
+                    <td>${product.category}</td>
+                    <td>${product.detailCategory}</td>
+                    <td>${product.oldPrice}</td>
+                    <td>${product.currentPrice}</td>
+                    <td>${product.category === "iPhone" ? "<i class='bx bx-check'></i>" : ""}</td>
+                    <td>${product.category !== "iPhone" ? "<i class='bx bx-check'></i>" : ""}</td>
+
+                    <td>
                     <span class="edit-product" onclick="showEditModal('${tmpName}')">
                         <i class="uil uil-edit"></i>
                     </span>
@@ -42,7 +45,7 @@ function showAdminProduct(start) {
     showCurrentContent('product');
     showAdProductPagination(products);
     showCurrentPage(start);
-
+    detailBill.style.display = 'none';
     userPage.style.display = 'none';
     statisticsPage.style.display = 'none';
     orderPage.style.display = 'none';

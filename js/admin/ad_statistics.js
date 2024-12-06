@@ -30,6 +30,7 @@ function getTotalOrderPrice() {
 
 showStatisticsPage();
 function showStatisticsPage() {
+    detailBill.style.display = 'none';
     statisticsPage.style.display = 'block';
     orderPage.style.display = 'none';
     productPage.style.display = 'none';

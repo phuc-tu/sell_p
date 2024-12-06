@@ -135,14 +135,21 @@ function getStatusOrder(status) {
     }
     return orderStatus;
 }
-
+function showDetailBill(){
+    orderPage.style.display = 'none';
+    productPage.style.display = 'none';
+    statisticsPage.style.display = 'none';
+    userPage.style.display = 'none';
+    detailBill.style.display = 'block';
+    showCurrentContent('bill');
+}
 function showAdminOrder() {
     showCurrentContent('order');
     orderPage.style.display = 'block';
     productPage.style.display = 'none';
     statisticsPage.style.display = 'none';
     userPage.style.display = 'none';
-    
+    detailBill.style.display = 'none';
     var status = document.querySelector('.admin__order-status select');
     for (var i = 0; i < status.options.length; i++) {
         if (status.options[i].selected == true) {
