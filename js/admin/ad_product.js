@@ -60,28 +60,30 @@ function showAdminProduct(start) {
 }
 
 // Search
-var searchInfo = document.querySelector('.admin__product-search-input');
+// var searchInfo = document.querySelector('.admin__product-search-input');
 
-searchInfo.addEventListener('keyup', function() {
-    if (searchInfo.value != '') {
-        var searchProduct = products.filter(function(product) {
-            return product.name.toLowerCase().includes(searchInfo.value.toLowerCase()); 
-        });
+// searchInfo.addEventListener('keyup', function() {
+//     if (searchInfo.value != '') {
+//         var searchProduct = products.filter(function(product) {
+//             return product.name.toLowerCase().includes(searchInfo.value.toLowerCase()); 
+//         });
         
-        var html = '';
-        searchProduct.forEach(function(product) {
-            html += htmlAdminProduct(product);
-        })
-        productList.innerHTML = html;
+//         var html = '';
+//         searchProduct.forEach(function(product) {
+//             html += htmlAdminProduct(product);
+//         })
+//         productList.innerHTML = html;
     
-        document.querySelector('.product__pagination').style.display = 'none';
-        prevBtn.style.display = 'none';
-        nextBtn.style.display = 'none';
-    } else {
-        document.querySelector('.product__pagination').style.display = 'flex';
-        showAdminProduct(1);
-    }
-})
+//         document.querySelector('.product__pagination').style.display = 'none';
+//         prevBtn.style.display = 'none';
+//         nextBtn.style.display = 'none';
+//     } else {
+//         document.querySelector('.product__pagination').style.display = 'flex';
+//         showAdminProduct(1);
+//     }
+// })
+
+
 
 // Product control
 var productControlModal = document.getElementById('product-control-modal');
