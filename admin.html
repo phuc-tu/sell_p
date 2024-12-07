@@ -72,6 +72,26 @@
                             <i class="uil uil-chart-line"></i>
                             <span  class="side-bar__item-text">Thống kê khách hàng</span>
                         </li>
+                        <li
+                            class="side-bar__item"
+                            value="order"
+                            onclick="showAdminOrder()"
+                        >
+                            <i class="uil uil-clipboard-notes"></i>
+                            <span class="side-bar__item-text"
+                                >Quản lý đơn hàng</span
+                            >
+                        </li>
+                        <li
+                            class="side-bar__item"
+                            value="bill"
+                            onclick="showDetailBill()"
+                        >
+                            <i class='bx bx-food-menu'></i>
+                            <span class="side-bar__item-text"
+                                >Chi tiết đơn hàng</span
+                            >
+                        </li>
                         
                         <li
                             class="side-bar__item"
@@ -155,7 +175,7 @@
                                     <th>Tổng tiền</th>
                                     <th>Số lượng bán</th>
                                     <th>Bán nhanh nhất</th>
-                                    <th>Bán ế nhất</th>
+                                    <th>Bán chậm nhất</th>
                                     <th>Hóa đơn</th>
                                 </tr>
                                 <tr class="product">
@@ -184,8 +204,8 @@
                                     <td>37.990.000₫</td>
                                     <td>113.970.000đ</td>
                                     <td class="state">3</td>
-                                    <td></td>
                                     <td>✔</td>
+                                    <td></td>
                                     <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
                                 </tr>
                             </table>
@@ -222,9 +242,11 @@
                                     <th>Tên sản phẩm</th>
                                     <th>Đơn giá</th>
                                     <th>Tổng tiền</th>
+                                    <th>Số lượng bán</th>
                                     <th>Bán nhanh nhất</th>
                                     <th>Bán chậm nhất</th>
-                                    <th>Số lượng bán</th>
+                                    <th>Hóa đơn</th>
+                    
 
                                 </tr>
                                 <tr class="product">
@@ -233,8 +255,8 @@
                                     <td>36.990.000₫</td>
                                     <td>139.960.000đ</td>
                                     <td class="state">4</td>
-                                    <td></td>
                                     <td>✔</td>
+                                    <td></td>
                                     <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
                                 </tr>
                                 <tr class="product">
@@ -243,8 +265,8 @@
                                     <td>30.490.000₫</td>
                                     <td>60.980.000đ</td>
                                     <td class="state">2</td>
-                                    <td></td>
                                     <td>✔</td>
+                                    <td></td>
                                     <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
                                 </tr>
                                 <tr class="product">
@@ -253,8 +275,8 @@
                                     <td>28.990.000₫</td>
                                     <td>129.950.000đ</td>
                                     <td class="state">5</td>
-                                    <td></td>
                                     <td>✔</td>
+                                    <td></td>
                                     <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
                                 </tr>
                             </table>
@@ -291,9 +313,10 @@
                                     <th>Tên sản phẩm</th>
                                     <th>Đơn giá</th>
                                     <th>Tổng tiền</th>
-                                    <th>Bán nhanh nhất</th>
-                                    <th>Bán chậm nhất</th>
                                     <th>Số lượng bán</th>
+                                    <th>Bán nhanh nhất</th>
+                                    <th>Bán chậm nhát</th>
+                                    <th>Hóa đơn</th>
 
                                 </tr>
                                 <tr class="product">
@@ -302,8 +325,8 @@
                                     <td>36.990.000₫</td>
                                     <td>139.960.000đ</td>
                                     <td class="state">4</td>
-                                    <td></td>
                                     <td>✔</td>
+                                    <td></td>
                                     <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
                                 </tr>
                                 <tr class="product">
@@ -312,8 +335,8 @@
                                     <td>30.490.000₫</td>
                                     <td>60.980.000đ</td>
                                     <td class="state">2</td>
-                                    <td></td>
                                     <td>✔</td>
+                                    <td></td>
                                     <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
                                 </tr>
                                 <tr class="product">
@@ -322,8 +345,8 @@
                                     <td>28.990.000₫</td>
                                     <td>129.950.000đ</td>
                                     <td class="state">5</td>
-                                    <td></td>
                                     <td>✔</td>
+                                    <td></td>
                                     <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
                                 </tr>
                             </table>
@@ -357,7 +380,7 @@
                             <table style="width: 100%;margin: 40px 0;">
                                 <!--noi dung tieu de-->
                                 <tr class="title">
-                                    <th>STT</th>
+                                    <th>Mã đơn hàng</th>
                                     <th>Tên Khách Hàng</th>
                                     <th>Địa chỉ</th>
                                     <th>Số Sản Phẩm Đã Mua</th>
@@ -432,8 +455,7 @@
                                     <th>Tên Khách Hàng</th>
                                     <th>Địa chỉ</th>
                                     <th>Số Sản Phẩm Đã Mua</th>
-                                    <th>Bán nhanh nhất</th>
-                                    <th>Bán ế nhất</th>
+                                    
                                     <th>Xem hóa đơn</th>
                                 </tr>
                                 <!--noi dung cac san pham-->
@@ -505,8 +527,7 @@
                                     <th>Tên Khách Hàng</th>
                                     <th>Địa chỉ</th>
                                     <th>Số Sản Phẩm Đã Mua</th>
-                                    <th>Bán nhanh nhất</th>
-                                    <th>Bán ế nhất</th>
+                                    
                                     <th>Xem hóa đơn</th>
                                 </tr>
                                 <!--noi dung cac san pham-->
@@ -518,7 +539,7 @@
                                     <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">Xem hóa đơn</td>
                                 </tr>
                                 <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
-                                    <td style="padding: 15px 0 15px 15px;">12</a></td>
+                                    <td style="padding: 15px 0 15px 15px;">12</td>
                                     <td style="padding: 15px 0 15px 15px;">Thanh Điền</td>
                                     <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
                                     <td style="padding: 15px 0 15px 15px;">2</td>
@@ -660,8 +681,8 @@
                                     <th>Ngày sinh</th>
                                 </tr>
                                 <tr class="user">
-                                    <td><a href=""><img src="./img/logo.png" alt="per3" style="width: 50px;height: 50px;border-radius: 100%;"></a></td>
-                                    <td>Teacher Thanh hand</td>
+                                    <td><a href=""><img src="./img/logo.img" alt="per3" style="width: 50px;height: 50px;border-radius: 100%;"></a></td>
+                                    <td>Nguyễn Thị C</td>
                                     <td>thic@gmail.com</td>
                                     <td>099888777</td>
                                     <td>22/02/2002</td>

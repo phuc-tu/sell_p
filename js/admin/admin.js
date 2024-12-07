@@ -5,7 +5,6 @@ var userPage = document.querySelector('.admin__user');
 var contentBtn = document.querySelectorAll('.side-bar__item');
 var content = document.querySelector('.admin__content');
 var detailBill = document.querySelector('.admin__detail');
-localStorage.setItem('userAccountIndex', '');
 function showCurrentContent(name) {
     var index;
     for (var i = 0; i < contentBtn.length; i++) {

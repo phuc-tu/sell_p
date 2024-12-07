@@ -141,8 +141,10 @@ function showDetailBill(){
     statisticsPage.style.display = 'none';
     userPage.style.display = 'none';
     detailBill.style.display = 'block';
+    showCurrentContent('bill');
 }
 function showAdminOrder() {
+    showCurrentContent('order');
     orderPage.style.display = 'block';
     productPage.style.display = 'none';
     statisticsPage.style.display = 'none';
