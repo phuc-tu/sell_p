@@ -1041,3 +1041,10 @@ tr {
 .admin__order-status select, .admin__order-sort select {
     width: 200px;
 }
+.admin__order-sort select {
+    width: 200px;
+    border: none; /* Xóa border */
+    outline: none; /* Xóa outline khi chọn */
+    padding: 5px; /* Thêm padding để nhìn đẹp hơn */
+    box-shadow: none; /* Xóa shadow */
+}
