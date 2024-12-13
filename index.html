@@ -81,21 +81,20 @@
                             </div>
                             <li class="header__navbar-item">
                                 <a
-                                href="index.html?advSearch"
-                                class="header__navbar-item-link"
-                                >Tìm kiếm nâng cao</a
-                            >
+                                    href="index.html?advSearch"
+                                    class="header__navbar-item-link"
+                                    >Tìm kiếm nâng cao</a
+                                >
                             </li>
-                            <li class="header__navbar-item" >
+                            <li class="header__navbar-item">
                                 <a
-                                href="index.html?order"
-                                class="header__navbar-item-link"
-                                onclick="showOrderPage()"
-                                >Đơn hàng của bạn</a
-                            >
-                                
+                                    href="index.html?order"
+                                    class="header__navbar-item-link"
+                                    onclick="showOrderPage()"
+                                    >Đơn hàng của bạn</a
+                                >
                             </li>
-                            
+
                             <div class="header__cart" onclick="showCartPage()">
                                 <span
                                     class="header__cart-icon material-symbols-rounded"
@@ -398,32 +397,147 @@
                 </div>
             </div>
             <div class="advSearch">
-                <section style="margin: 50px auto; width: 50%; background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); border-radius: 8px; padding: 30px; display: flex; flex-direction: column; align-items: center;">
-                    <h2 style="text-align: center; margin: 10px 0 20px;">Tìm kiếm nâng cao</h2>
-                    <form onsubmit="event.preventDefault(); window.location.href='index.html';"  style="width: 100%; display: grid; grid-template-columns: 1fr 3fr; row-gap: 20px; column-gap: 20px; align-items: center;">
-                        <div style="display: contents;">
-                            <label for="name" style="text-align: left; font-size: 16px; font-weight: 500;">Tên sản phẩm</label>
-                            <input type="text" id="name" required style="width: 100%; height: 35px; padding: 5px 10px; font-size: 16px; border: 1px solid rgb(221, 201, 201); border-radius: 5px;">
+                <section
+                    style="
+                        margin: 50px auto;
+                        width: 50%;
+                        background-color: white;
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                        border-radius: 8px;
+                        padding: 30px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    "
+                >
+                    <h2 style="text-align: center; margin: 10px 0 20px">
+                        Tìm kiếm nâng cao
+                    </h2>
+                    <form
+                        onsubmit="event.preventDefault(); window.location.href='index.html';"
+                        style="
+                            width: 100%;
+                            display: grid;
+                            grid-template-columns: 1fr 3fr;
+                            row-gap: 20px;
+                            column-gap: 20px;
+                            align-items: center;
+                        "
+                    >
+                        <div style="display: contents">
+                            <label
+                                for="name"
+                                style="
+                                    text-align: left;
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                "
+                                >Tên sản phẩm</label
+                            >
+                            <input
+                                type="text"
+                                id="name"
+                                required
+                                style="
+                                    width: 100%;
+                                    height: 35px;
+                                    padding: 5px 10px;
+                                    font-size: 16px;
+                                    border: 1px solid rgb(221, 201, 201);
+                                    border-radius: 5px;
+                                "
+                            />
                         </div>
-                        <div style="display: contents;">
-                            <label for="brand" style="text-align: left; font-size: 16px; font-weight: 500;">Loại</label>
-                            <select id="brand" style="width: 100%; height: 35px; padding: 5px 10px; font-size: 16px; border: 1px solid rgb(221, 201, 201); border-radius: 5px;">
+                        <div style="display: contents">
+                            <label
+                                for="brand"
+                                style="
+                                    text-align: left;
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                "
+                                >Loại</label
+                            >
+                            <select
+                                id="brand"
+                                style="
+                                    width: 100%;
+                                    height: 35px;
+                                    padding: 5px 10px;
+                                    font-size: 16px;
+                                    border: 1px solid rgb(221, 201, 201);
+                                    border-radius: 5px;
+                                "
+                            >
                                 <option value="iPhone">IPhone</option>
                                 <option value="iPad">IPad</option>
                                 <option value="MacBook">MacBook</option>
                                 <option value="AppleWatch">AppleWatch</option>
-
                             </select>
                         </div>
-                        <div style="display: contents;">
-                            <label for="priceFrom" style="text-align: left; font-size: 16px; font-weight: 500;">Giá từ</label>
-                            <div style="display: flex; gap: 10px; align-items: center;">
-                                <input type="number" id="priceFrom" style="width: calc(50% - 5px); height: 35px; padding: 5px 10px; font-size: 16px; border: 1px solid rgb(221, 201, 201); border-radius: 5px;">
-                                <span style="font-size: 16px; color: #333;">đến</span>
-                                <input type="number"  id="priceTo" style="width: calc(50% - 5px); height: 35px; padding: 5px 10px; font-size: 16px; border: 1px solid rgb(221, 201, 201); border-radius: 5px;">
+                        <div style="display: contents">
+                            <label
+                                for="priceFrom"
+                                style="
+                                    text-align: left;
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                "
+                                >Giá từ</label
+                            >
+                            <div
+                                style="
+                                    display: flex;
+                                    gap: 10px;
+                                    align-items: center;
+                                "
+                            >
+                                <input
+                                    type="number"
+                                    id="priceFrom"
+                                    style="
+                                        width: calc(50% - 5px);
+                                        height: 35px;
+                                        padding: 5px 10px;
+                                        font-size: 16px;
+                                        border: 1px solid rgb(221, 201, 201);
+                                        border-radius: 5px;
+                                    "
+                                />
+                                <span style="font-size: 16px; color: #333"
+                                    >đến</span
+                                >
+                                <input
+                                    type="number"
+                                    id="priceTo"
+                                    style="
+                                        width: calc(50% - 5px);
+                                        height: 35px;
+                                        padding: 5px 10px;
+                                        font-size: 16px;
+                                        border: 1px solid rgb(221, 201, 201);
+                                        border-radius: 5px;
+                                    "
+                                />
                             </div>
                         </div>
-                        <button style="grid-column: span 2; width: 40%; font-size: 18px; margin: 20px auto; padding: 10px 15px; border: 2px solid black; background-color: #000; font-weight: bold; cursor: pointer; border-radius: 5px; color: #fff; text-align: center; transition: transform 0.2s, box-shadow 0.2s;">
+                        <button
+                            style="
+                                grid-column: span 2;
+                                width: 40%;
+                                font-size: 18px;
+                                margin: 20px auto;
+                                padding: 10px 15px;
+                                border: 2px solid black;
+                                background-color: #000;
+                                font-weight: bold;
+                                cursor: pointer;
+                                border-radius: 5px;
+                                color: #fff;
+                                text-align: center;
+                                transition: transform 0.2s, box-shadow 0.2s;
+                            "
+                        >
                             Tìm kiếm
                         </button>
                     </form>
@@ -534,15 +648,52 @@
                                         </div>
                                         <div class="cart__form-info-box">
                                             <div class="address">
-                                                <div class="title" style="color: red; font-weight: 700;"><i class="uil uil-location-point" style="margin-right: 10px;"></i>Địa chỉ nhận hàng</div>
-                                                <div class="firstEle" style="display: flex; align-items: center;justify-content: space-between; margin: 10px 0;">
-                                                    <p>Xin chào | SĐT: 0386 053 241</p>
-                                                    <p>Địa chỉ: 273 An Dương Vương, p4, q5, TP Hồ Chí Minh</p>
-                                                    <p style="color: blue; text-decoration: none;cursor: pointer;" onclick="swapListAddress(1)">Thay đổi</p>
+                                                <div
+                                                    class="title"
+                                                    style="
+                                                        color: red;
+                                                        font-weight: 700;
+                                                    "
+                                                >
+                                                    <i
+                                                        class="uil uil-location-point"
+                                                        style="
+                                                            margin-right: 10px;
+                                                        "
+                                                    ></i
+                                                    >Địa chỉ nhận hàng
+                                                </div>
+                                                <div
+                                                    class="firstEle"
+                                                    style="
+                                                        display: flex;
+                                                        align-items: center;
+                                                        justify-content: space-between;
+                                                        margin: 10px 0;
+                                                    "
+                                                >
+                                                    <p>
+                                                        Xin chào | SĐT: 0386 053
+                                                        241
+                                                    </p>
+                                                    <p>
+                                                        Địa chỉ: 273 An Dương
+                                                        Vương, p4, q5, TP Hồ Chí
+                                                        Minh
+                                                    </p>
+                                                    <p
+                                                        style="
+                                                            color: blue;
+                                                            text-decoration: none;
+                                                            cursor: pointer;
+                                                        "
+                                                        onclick="swapListAddress(1)"
+                                                    >
+                                                        Thay đổi
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
-                                       
                                     </div>
                                     <div class="cart__form-select">
                                         <h5 class="cart__form-header">
@@ -557,7 +708,11 @@
                                                 name="ship"
                                                 required
                                             />
-                                            <label for="home" class="cart__form-select-label">Giao tận nơi</label>
+                                            <label
+                                                for="home"
+                                                class="cart__form-select-label"
+                                                >Giao tận nơi</label
+                                            >
                                             <input
                                                 id="shop"
                                                 class="cart__form-select-input"
@@ -566,10 +721,14 @@
                                                 name="ship"
                                                 required
                                             />
-                                            <label for="shop" class="cart__form-select-label">Nhận tại cửa hàng</label>
+                                            <label
+                                                for="shop"
+                                                class="cart__form-select-label"
+                                                >Nhận tại cửa hàng</label
+                                            >
                                         </div>
                                     </div>
-                                    
+
                                     <div class="cart__form-select">
                                         <h5 class="cart__form-header">
                                             Phương thức thanh toán
@@ -583,7 +742,11 @@
                                                 name="payment"
                                                 required
                                             />
-                                            <label for="cash" class="cart__form-select-label">Tiền mặt</label>
+                                            <label
+                                                for="cash"
+                                                class="cart__form-select-label"
+                                                >Tiền mặt</label
+                                            >
                                             <input
                                                 id="transfer"
                                                 class="cart__form-select-input"
@@ -592,14 +755,18 @@
                                                 name="payment"
                                                 required
                                             />
-                                            <label for="transfer" class="cart__form-select-label">Chuyển khoản</label>
+                                            <label
+                                                for="transfer"
+                                                class="cart__form-select-label"
+                                                >Chuyển khoản</label
+                                            >
                                         </div>
                                     </div>
-                                    
+
                                     <!-- <button onclick="submitOrder()" style="background: blue; color: #fff; font-weight: 700; border: none; border-radius: 5px; padding: 10px;">
                                         XÁC NHẬN
                                     </button> -->
-                                    
+
                                     <!-- <script>
                                         function submitOrder() {
                                             // Lấy giá trị hình thức nhận hàng
@@ -619,40 +786,124 @@
                                             window.location.href = 'index.html?cart';
                                         }
                                     </script> -->
-                                    
+
                                     <button class="cart__buy-btn" type="submit">
                                         Đặt hàng
                                     </button>
                                 </form>
                                 <section class="listAddress">
                                     <h2>Địa chỉ</h2>
-                                    <div class="address" style="padding: 5px;display: flex; gap: 10px; margin-top: 10px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;" >
-                                        <input type="radio" class="radio-button" name="address-option" id="option1" value="option1" checked>
+                                    <div
+                                        class="address"
+                                        style="
+                                            padding: 5px;
+                                            display: flex;
+                                            gap: 10px;
+                                            margin-top: 10px;
+                                            box-shadow: rgba(0, 0, 0, 0.2) 0px
+                                                4px 8px 0px;
+                                        "
+                                    >
+                                        <input
+                                            type="radio"
+                                            class="radio-button"
+                                            name="address-option"
+                                            id="option1"
+                                            value="option1"
+                                            checked
+                                        />
                                         <div class="detail">
-                                            <p><strong>Nhom21</strong> | 0386 053 241</p>
-                                            <p>120 Nguyễn Trãi, p2, q5, TP Hồ Chí Minh</p>
+                                            <p>
+                                                <strong>Nhom21</strong> | 0386
+                                                053 241
+                                            </p>
+                                            <p>
+                                                120 Nguyễn Trãi, p2, q5, TP Hồ
+                                                Chí Minh
+                                            </p>
                                         </div>
-                                        <p class="default" style="display: flex;align-items: center;justify-content: center;color: red; border: 1px solid red; padding: 5px 20px; border-radius: 2px; font-weight: 700;">Mặc định</p>
+                                        <p
+                                            class="default"
+                                            style="
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: center;
+                                                color: red;
+                                                border: 1px solid red;
+                                                padding: 5px 20px;
+                                                border-radius: 2px;
+                                                font-weight: 700;
+                                            "
+                                        >
+                                            Mặc định
+                                        </p>
                                     </div>
-                                    <div class="address" style="padding: 5px;display: flex; gap: 10px; margin-top: 10px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;" >
-                                        <input type="radio" class="radio-button" name="address-option" id="option1" value="option1">
+                                    <div
+                                        class="address"
+                                        style="
+                                            padding: 5px;
+                                            display: flex;
+                                            gap: 10px;
+                                            margin-top: 10px;
+                                            box-shadow: rgba(0, 0, 0, 0.2) 0px
+                                                4px 8px 0px;
+                                        "
+                                    >
+                                        <input
+                                            type="radio"
+                                            class="radio-button"
+                                            name="address-option"
+                                            id="option1"
+                                            value="option1"
+                                        />
                                         <div class="detail">
-                                            <p><strong>Nhom21</strong> | 0386 053 241</p>
-                                            <p>558 Trần Hưng Đạo, p2, q5, TP Hồ Chí Minh</p>
+                                            <p>
+                                                <strong>Nhom21</strong> | 0386
+                                                053 241
+                                            </p>
+                                            <p>
+                                                558 Trần Hưng Đạo, p2, q5, TP Hồ
+                                                Chí Minh
+                                            </p>
                                         </div>
                                     </div>
-                                    <br>
-                                    <p onclick="swapListAddress(2)" style="color: red; text-decoration: none;cursor: pointer;">
+                                    <br />
+                                    <p
+                                        onclick="swapListAddress(2)"
+                                        style="
+                                            color: red;
+                                            text-decoration: none;
+                                            cursor: pointer;
+                                        "
+                                    >
                                         <i class="uil uil-plus-circle"></i>
                                         Thêm địa chỉ mới
                                     </p>
-                                    <br>
-                                    <br>
-                                    <button onclick="showToast('success', 'Thành công!', `Chọn địa chỉ thành công`);setTimeout(() => { window.location.href = 'index.html?cart'; }, 1000);"  style="background: blue;color: #fff;font-weight: 700;border: none; border-radius: 5px; padding: 10px;">XÁC NHẬN</button>
+                                    <br />
+                                    <br />
+                                    <button
+                                        onclick="showToast('success', 'Thành công!', `Chọn địa chỉ thành công`);setTimeout(() => { window.location.href = 'index.html?cart'; }, 1000);"
+                                        style="
+                                            background: blue;
+                                            color: #fff;
+                                            font-weight: 700;
+                                            border: none;
+                                            border-radius: 5px;
+                                            padding: 10px;
+                                        "
+                                    >
+                                        XÁC NHẬN
+                                    </button>
                                 </section>
-                                <section class="addListAddress" style="padding: 16px;">
+                                <section
+                                    class="addListAddress"
+                                    style="padding: 16px"
+                                >
                                     <h1>Địa Chỉ Mới</h1>
-                                    <div class="cart__form-info" style="display: block;">
+                                    <div
+                                        class="cart__form-info"
+                                        style="display: block"
+                                    >
                                         <div class="cart__form-info-box">
                                             <label
                                                 for="fullname"
@@ -704,12 +955,20 @@
                                         </div>
                                     </div>
                                     <a href="javascript:void(0);">
-                                        <button onclick="showToast('success', 'Thành công!', `Thêm địa chỉ mới thành công`); setTimeout(() => { window.location.href = 'index.html?cart'; }, 1000);" 
-                                                style="background: blue; color: #fff; font-weight: 700; border: none; border-radius: 5px; padding: 10px;">
+                                        <button
+                                            onclick="showToast('success', 'Thành công!', `Thêm địa chỉ mới thành công`); setTimeout(() => { window.location.href = 'index.html?cart'; }, 1000);"
+                                            style="
+                                                background: blue;
+                                                color: #fff;
+                                                font-weight: 700;
+                                                border: none;
+                                                border-radius: 5px;
+                                                padding: 10px;
+                                            "
+                                        >
                                             HOÀN THÀNH
                                         </button>
                                     </a>
-                                    
                                 </section>
                             </div>
                         </div>

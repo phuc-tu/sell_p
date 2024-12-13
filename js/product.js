@@ -185,7 +185,7 @@ function showFilterProduct(category, filterName, start) {
 function showProduct(start) {
     document.querySelector('.cart').style.display = 'none';
     document.querySelector('.order').style.display = 'none';
-
+    console.log('start :>> ', start);
     var category = getCategory();
     var productArray;
     if (category != undefined && category != '') {
@@ -207,6 +207,7 @@ function showProduct(start) {
     category = ReName(category);
 
     var arr = createTempArray(start, productArray); //tạo mảng tạm chứa sản phẩm ở trang hiện tại
+    console.log('object :>> ', arr);
     document.getElementById('body').style.display = 'block';
     document.querySelector('.product__logo-name').innerHTML = category;
     document.getElementById('show-product').innerHTML = arr.join(''); 

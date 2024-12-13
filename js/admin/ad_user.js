@@ -170,18 +170,7 @@ function autoCloseControlPage() {
 }
 
 // Search account
-var searhInfo = document.querySelector(".admin__user-search-input");
 
-searhInfo.addEventListener("keyup", function () {
-    var searchAccount = userAccount.filter(function (account) {
-        return account.userName.toLowerCase().includes(searhInfo.value);
-    });
-
-    var html = searchAccount.map(function (account) {
-        return htmlUser(account);
-    });
-    userList.innerHTML = html.join("");
-});
 
 // Show user control
 var userControlModal = document.getElementById("user-control-modal");
