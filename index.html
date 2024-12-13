@@ -544,7 +544,6 @@
                                         </div>
                                        
                                     </div>
-
                                     <div class="cart__form-select">
                                         <h5 class="cart__form-header">
                                             Hình thức nhận hàng
@@ -554,31 +553,73 @@
                                                 id="home"
                                                 class="cart__form-select-input"
                                                 type="radio"
-                                                value=""
+                                                value="Giao tận nơi"
                                                 name="ship"
                                                 required
                                             />
-                                            <label
-                                                for="home"
-                                                class="cart__form-select-label"
-                                                >Giao tận nơi</label
-                                            >
+                                            <label for="home" class="cart__form-select-label">Giao tận nơi</label>
                                             <input
                                                 id="shop"
                                                 class="cart__form-select-input"
                                                 type="radio"
-                                                value=""
+                                                value="Nhận tại cửa hàng"
                                                 name="ship"
                                                 required
                                             />
-                                            <label
-                                                for="shop"
-                                                class="cart__form-select-label"
-                                                >Nhận tại cửa hàng</label
-                                            >
+                                            <label for="shop" class="cart__form-select-label">Nhận tại cửa hàng</label>
                                         </div>
                                     </div>
-
+                                    
+                                    <div class="cart__form-select">
+                                        <h5 class="cart__form-header">
+                                            Phương thức thanh toán
+                                        </h5>
+                                        <div class="cart__form-select-box">
+                                            <input
+                                                id="cash"
+                                                class="cart__form-select-input"
+                                                type="radio"
+                                                value="Tiền mặt"
+                                                name="payment"
+                                                required
+                                            />
+                                            <label for="cash" class="cart__form-select-label">Tiền mặt</label>
+                                            <input
+                                                id="transfer"
+                                                class="cart__form-select-input"
+                                                type="radio"
+                                                value="Chuyển khoản"
+                                                name="payment"
+                                                required
+                                            />
+                                            <label for="transfer" class="cart__form-select-label">Chuyển khoản</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- <button onclick="submitOrder()" style="background: blue; color: #fff; font-weight: 700; border: none; border-radius: 5px; padding: 10px;">
+                                        XÁC NHẬN
+                                    </button> -->
+                                    
+                                    <!-- <script>
+                                        function submitOrder() {
+                                            // Lấy giá trị hình thức nhận hàng
+                                            const shipMethod = document.querySelector('input[name="ship"]:checked')?.value;
+                                            // Lấy giá trị phương thức thanh toán
+                                            const paymentMethod = document.querySelector('input[name="payment"]:checked')?.value;
+                                    
+                                            // Kiểm tra nếu chưa chọn hình thức nhận hàng hoặc thanh toán
+                                            if (!shipMethod || !paymentMethod) {
+                                                alert("Vui lòng chọn đầy đủ hình thức nhận hàng và phương thức thanh toán.");
+                                                return;
+                                            }
+                                    
+                                            // Hiển thị thông báo đã chọn
+                                            alert(`Bạn đã chọn:\n- Hình thức nhận hàng: ${shipMethod}\n- Phương thức thanh toán: ${paymentMethod}`);
+                                            // Chuyển hướng hoặc xử lý tiếp theo
+                                            window.location.href = 'index.html?cart';
+                                        }
+                                    </script> -->
+                                    
                                     <button class="cart__buy-btn" type="submit">
                                         Đặt hàng
                                     </button>
@@ -662,7 +703,13 @@
                                             />
                                         </div>
                                     </div>
-                                    <a href="index.html?cart" ><button class="cart__buy-btn">HOÀN THÀNH</button></a>
+                                    <a href="javascript:void(0);">
+                                        <button onclick="showToast('success', 'Thành công!', `Thêm địa chỉ mới thành công`); setTimeout(() => { window.location.href = 'index.html?cart'; }, 1000);" 
+                                                style="background: blue; color: #fff; font-weight: 700; border: none; border-radius: 5px; padding: 10px;">
+                                            HOÀN THÀNH
+                                        </button>
+                                    </a>
+                                    
                                 </section>
                             </div>
                         </div>
