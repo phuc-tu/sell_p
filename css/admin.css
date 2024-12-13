@@ -1020,31 +1020,3 @@ tr {
     color: #ee4d2d;
     text-align: center;
 }
-.admin__filter-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Căn giữa các thẻ h3 và các input/select */
-    gap: 20px; /* Khoảng cách giữa các phần tử */
-}
-
-.admin__filter-header h3 {
-    margin: 0; /* Xóa margin mặc định của thẻ h3 */
-}
-
-.admin__order-status-sort {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    align-items: center;
-}
-
-.admin__order-status select, .admin__order-sort select {
-    width: 200px;
-}
-.admin__order-sort select {
-    width: 200px;
-    border: none; /* Xóa border */
-    outline: none; /* Xóa outline khi chọn */
-    padding: 5px; /* Thêm padding để nhìn đẹp hơn */
-    box-shadow: none; /* Xóa shadow */
-}
