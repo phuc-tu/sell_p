@@ -72,26 +72,6 @@
                             <i class="uil uil-chart-line"></i>
                             <span  class="side-bar__item-text">Thống kê khách hàng</span>
                         </li>
-                        <li
-                            class="side-bar__item"
-                            value="order"
-                            onclick="showAdminOrder()"
-                        >
-                            <i class="uil uil-clipboard-notes"></i>
-                            <span class="side-bar__item-text"
-                                >Quản lý đơn hàng</span
-                            >
-                        </li>
-                        <li
-                            class="side-bar__item"
-                            value="bill"
-                            onclick="showDetailBill()"
-                        >
-                            <i class='bx bx-food-menu'></i>
-                            <span class="side-bar__item-text"
-                                >Chi tiết đơn hàng</span
-                            >
-                        </li>
                         
                         <li
                             class="side-bar__item"
@@ -103,6 +83,17 @@
                                 >Quản lý sản phẩm</span
                             >
                         </li>
+                        <li
+                            class="side-bar__item"
+                            value="order"
+                            onclick="showAdminOrder()"
+                        >
+                            <i class="uil uil-clipboard-notes"></i>
+                            <span class="side-bar__item-text"
+                                >Quản lý đơn hàng</span
+                            >
+                        </li>
+                        
                         <li
                             class="side-bar__item"
                             value="user"
@@ -149,7 +140,7 @@
                     <div class="admin__statis">
                         <section class="thongke1" style="width: 100%;">
                             <div class="filter" style="display: flex;gap: 10px;align-items: center;margin-left:100px;">
-                                <span><input type="radio" name="chon" value="ten" checked onchange="handleSearchTypeChange(this)">Theo tên sản phẩm</span>
+                                <!-- <span><input type="radio" name="chon" value="ten" checked onchange="handleSearchTypeChange(this)">Theo tên sản phẩm</span>
                                 <span><input type="radio" name="chon" value="loai" onchange="handleSearchTypeChange(this)">Theo loại sản phẩm</span>
                                 <input type="text" name="tenSp" class="tenSp" placeholder="Tên sản phẩm">
                                 <select name="loaiSp" class="loaiSp" style="display: none;">
@@ -157,14 +148,14 @@
                                     <option value="iPad">IPad</option>
                                     <option value="MacBook">MacBook</option>
                                     <option value="AppleWatch">AppleWatch</option>
-                                </select>
+                                </select> -->
                                 <div class="date">
                                     <label for="start">Từ ngày: </label>
                                     <input type="date" id="start" name="start" value="2023-11-24" min="2018-01-01" max="2023-12-31">
                                     <label for="start">đến </label>
                                     <input type="date" id="end" name="end" value="2023-11-30" min="2018-01-01" max="2023-12-31">
                                 </div>
-                                <a onclick="showThongkeTheoTen()" style="cursor: pointer; background: #000; color: #fff;font-weight: 700; padding: 2px; border-radius: 5px;text-decoration: none;" class="thongKe"></i>Thống kê</a>
+                                <!-- <a onclick="showThongkeTheoTen()" style="cursor: pointer; background: #000; color: #fff;font-weight: 700; padding: 2px; border-radius: 5px;text-decoration: none;" class="thongKe"></i>Thống kê</a> -->
                             </div>
                             
                             <table style="width: 100%;margin: 40px 0;">
@@ -174,8 +165,8 @@
                                     <th>Đơn giá</th>
                                     <th>Tổng tiền</th>
                                     <th>Số lượng bán</th>
-                                    <th>Bán nhanh nhất</th>
-                                    <th>Bán chậm nhất</th>
+                                    <th>Bán chạy nhất</th>
+                                    <th>Bán ế nhất</th>
                                     <th>Hóa đơn</th>
                                 </tr>
                                 <tr class="product">
@@ -184,9 +175,9 @@
                                     <td>35.990.000₫</td>
                                     <td>71.980.000đ</td>
                                     <td class="state">2</td>
-                                    <td>✔</td>
+                                    <td><i class="bx bx-check"></i></td>
                                     <td></td>
-                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()()">Xem hóa đơn</td>
                                 </tr>
                                 <tr class="product">
                                     <td><img style="width: 100px; height: 100px;" src="./img/product/applewatch/watch012.png" alt=""></td>
@@ -194,9 +185,9 @@
                                     <td>23.990.000₫</td>
                                     <td>215.910.000đ</td>
                                     <td class="state">9</td>
-                                    <td>✔</td>
+                                    <td><i class="bx bx-check"></i></td>
                                     <td></td>
-                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()()">Xem hóa đơn</td>
                                 </tr>
                                 <tr class="product">
                                     <td><img style="width: 100px; height: 100px;" src="./img/product/macbook/macbook009.png" alt=""></td>
@@ -204,17 +195,37 @@
                                     <td>37.990.000₫</td>
                                     <td>113.970.000đ</td>
                                     <td class="state">3</td>
-                                    <td>✔</td>
                                     <td></td>
-                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
+                                    <td><i class="bx bx-check"></i></td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()()">Xem hóa đơn</td>
+                                </tr>
+                                <tr class="product">
+                                    <td><img style="width: 100px; height: 100px;" src="./img/product/iphone/iphone001.png" alt=""></td>
+                                    <td>iPhone 14 Pro Max 256GB</td>
+                                    <td>36.990.000₫</td>
+                                    <td>139.960.000đ</td>
+                                    <td class="state">4</td>
+                                    <td></td>
+                                    <td><i class="bx bx-check"></i></td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()()">Xem hóa đơn</td>
+                                </tr>
+                                <tr class="product">
+                                    <td><img style="width: 100px; height: 100px;" src="./img/product/iphone/iphone002.png" alt=""></td>
+                                    <td>iPhone 14 Pro 128GB</td>
+                                    <td>30.490.000₫</td>
+                                    <td>60.980.000đ</td>
+                                    <td class="state">2</td>
+                                    <td><i class="bx bx-check"></i></td>
+                                    <td></td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()()">Xem hóa đơn</td>
                                 </tr>
                             </table>
-                            <div class="pagination">
+                            <!-- <div class="pagination">
                                 <a onclick="showThongke1()">&lt;</a>
                                 <a onclick="showThongke1()" class="active">1</a>
                                 <a onclick="showThongke2()">2</a>
                                 <a onclick="showThongke2()">&gt;</a>
-                            </div>
+                            </div> -->
                         </section>
                         <section class="thongke2" style="width: 100%;">
                             <div class="filter" style="display: flex;gap: 10px;align-items: center;margin-left:100px;">
@@ -243,10 +254,6 @@
                                     <th>Đơn giá</th>
                                     <th>Tổng tiền</th>
                                     <th>Số lượng bán</th>
-                                    <th>Bán nhanh nhất</th>
-                                    <th>Bán chậm nhất</th>
-                                    <th>Hóa đơn</th>
-                    
 
                                 </tr>
                                 <tr class="product">
@@ -255,9 +262,7 @@
                                     <td>36.990.000₫</td>
                                     <td>139.960.000đ</td>
                                     <td class="state">4</td>
-                                    <td>✔</td>
-                                    <td></td>
-                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
                                 <tr class="product">
                                     <td><img style="width: 100px; height: 100px;" src="./img/product/iphone/iphone002.png" alt=""></td>
@@ -265,9 +270,7 @@
                                     <td>30.490.000₫</td>
                                     <td>60.980.000đ</td>
                                     <td class="state">2</td>
-                                    <td>✔</td>
-                                    <td></td>
-                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
                                 <tr class="product">
                                     <td><img style="width: 100px; height: 100px;" src="./img/product/macbook/macbook001.png" alt=""></td>
@@ -275,9 +278,7 @@
                                     <td>28.990.000₫</td>
                                     <td>129.950.000đ</td>
                                     <td class="state">5</td>
-                                    <td>✔</td>
-                                    <td></td>
-                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
                             </table>
                             <div class="pagination">
@@ -314,9 +315,6 @@
                                     <th>Đơn giá</th>
                                     <th>Tổng tiền</th>
                                     <th>Số lượng bán</th>
-                                    <th>Bán nhanh nhất</th>
-                                    <th>Bán chậm nhát</th>
-                                    <th>Hóa đơn</th>
 
                                 </tr>
                                 <tr class="product">
@@ -325,9 +323,7 @@
                                     <td>36.990.000₫</td>
                                     <td>139.960.000đ</td>
                                     <td class="state">4</td>
-                                    <td>✔</td>
-                                    <td></td>
-                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
                                 <tr class="product">
                                     <td><img style="width: 100px; height: 100px;" src="./img/product/iphone/iphone002.png" alt=""></td>
@@ -335,9 +331,7 @@
                                     <td>30.490.000₫</td>
                                     <td>60.980.000đ</td>
                                     <td class="state">2</td>
-                                    <td>✔</td>
-                                    <td></td>
-                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
                                 <tr class="product">
                                     <td><img style="width: 100px; height: 100px;" src="./img/product/macbook/macbook001.png" alt=""></td>
@@ -345,9 +339,7 @@
                                     <td>28.990.000₫</td>
                                     <td>129.950.000đ</td>
                                     <td class="state">5</td>
-                                    <td>✔</td>
-                                    <td></td>
-                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showAdminOrder()">Xem hóa đơn</td>
+                                    <td style="color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
                             </table>
                             <div class="pagination">
@@ -359,7 +351,7 @@
                         </section>
                         <section class="thongke4" style="width: 100%;">
                             <div class="filter" style="display: flex;gap: 10px;align-items: center;margin-left:100px;">
-                                <span><input type="radio" name="chon" value="ten" checked onchange="handleSearchTypeChange(this)">Top những người mua hàng nhiều nhất</span>
+                                <!-- <span><input type="radio" name="chon" value="ten" checked onchange="handleSearchTypeChange(this)">Top những người mua hàng nhiều nhất</span>
                                 <span><input type="radio" name="chon" value="loai" onchange="handleSearchTypeChange(this)">Theo loại sản phẩm</span>
                                 <input type="text" name="tenSp" class="tenSp" placeholder="Tên sản phẩm">
                                 <select name="loaiSp" class="loaiSp" style="display: none;">
@@ -367,74 +359,70 @@
                                     <option value="iPad">IPad</option>
                                     <option value="MacBook">MacBook</option>
                                     <option value="AppleWatch">AppleWatch</option>
-                                </select>
+                                </select> -->
+                                <span style="font-weight: 700;">top 5 khách hàng mua nhiều nhất</span>
+                                <br>
                                 <div class="date">
                                     <label for="start">Từ ngày: </label>
                                     <input type="date" id="start" name="start" value="2023-11-24" min="2018-01-01" max="2023-12-31">
                                     <label for="start">đến </label>
                                     <input type="date" id="end" name="end" value="2023-11-30" min="2018-01-01" max="2023-12-31">
                                 </div>
-                                <a onclick="showThongkeSpTheoTen()" style="cursor: pointer; background: #000; color: #fff;font-weight: 700; padding: 2px; border-radius: 5px;text-decoration: none;" class="thongKe"></i>Thống kê</a>
+                                <!-- <a onclick="showThongkeSpTheoTen()" style="cursor: pointer; background: #000; color: #fff;font-weight: 700; padding: 2px; border-radius: 5px;text-decoration: none;" class="thongKe"></i>Thống kê</a> -->
                             </div>
                             
                             <table style="width: 100%;margin: 40px 0;">
                                 <!--noi dung tieu de-->
                                 <tr class="title">
-                                    <th>Mã đơn hàng</th>
                                     <th>Tên Khách Hàng</th>
                                     <th>Địa chỉ</th>
                                     <th>Số Sản Phẩm Đã Mua</th>
-                                    <th>Xem hóa đơn</th>
+                                    <th showDetailListUser()>Xem hóa đơn</th>
                                 </tr>
                                 <!--noi dung cac san pham-->
-                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
-                                    <td style="padding: 15px 0 15px 15px;">1</td>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">     
                                     <td style="padding: 15px 0 15px 15px;">Nguyễn Ân</td>
                                     <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
                                     <td style="padding: 15px 0 15px 15px;">10</td>
-                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">Xem hóa đơn</td>
+                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
-                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
-                                    <td style="padding: 15px 0 15px 15px;">2</td>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">     
                                     <td style="padding: 15px 0 15px 15px;">Thanh Điền</td>
                                     <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
                                     <td style="padding: 15px 0 15px 15px;">2</td>
-                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">Xem hóa đơn</td>
+                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
-                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
-                                    <td style="padding: 15px 0 15px 15px;">3</td>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">     
                                     <td style="padding: 15px 0 15px 15px;">Trọng Hiếu</td>
                                     <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
                                     <td style="padding: 15px 0 15px 15px;">2</td>
-                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">Xem hóa đơn</td>
+                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
-                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
-                                    <td style="padding: 15px 0 15px 15px;">4</td>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">     
                                     <td style="padding: 15px 0 15px 15px;">Thanh</td>
                                     <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
                                     <td style="padding: 15px 0 15px 15px;">2</td>
-                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">Xem hóa đơn</td>
+                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
-                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
-                                    <td style="padding: 15px 0 15px 15px;">5</td>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">     
                                     <td style="padding: 15px 0 15px 15px;">Ngọc Hân</td>
                                     <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
                                     <td style="padding: 15px 0 15px 15px;">2</td>
-                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">Xem hóa đơn</td>
+                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
                                 <!-- <tr class="product sum">
                                     <td colspan="5" class="tong">Tổng</td>
                                     <td>6</td>
                                 </tr> -->
                             </table>
-                            <div class="pagination">
-                                <a onclick="showThongke4()">&lt;</a>
-                                <a onclick="showThongke4()" class="active">1</a>
-                                <a onclick="showThongke5()" >2</a>
-                                <a onclick="showThongke5()">&gt;</a>
-                            </div>
+                            <!-- <div class="pagination">
+                                <a>&lt;</a>
+                                <a class="active">1</a>
+                                <a>2</a>
+                                <a>&gt;</a>
+                            </div> -->
                         </section>
-                        <section class="thongke5" style="width: 100%;">
+                        <!-- <section class="thongke5" style="width: 100%;">
                             <div class="filter" style="display: flex;gap: 10px;align-items: center;margin-left:100px;">
                                 <span><input type="radio" name="chon" value="ten"   checked>Top những người mua hàng nhiều nhất</span>
                                 <span><input type="radio" name="chon" value="loai" >Theo loại sản phẩm</span>
@@ -449,55 +437,49 @@
                             </div>
                             
                             <table style="width: 100%;margin: 40px 0;">
-                                <!--noi dung tieu de-->
                                 <tr class="title">
                                     <th>Mã đơn hàng</th>
                                     <th>Tên Khách Hàng</th>
                                     <th>Địa chỉ</th>
                                     <th>Số Sản Phẩm Đã Mua</th>
-                                    
-                                    <th>Xem hóa đơn</th>
+                                    <th>Bán nhanh nhất</th>
+                                    <th>Bán ế nhất</th>
+                                    <th showDetailListUser()>Xem hóa đơn</th>
                                 </tr>
-                                <!--noi dung cac san pham-->
-                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
-                                    <td style="padding: 15px 0 15px 15px;">6</td>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">     
                                     <td style="padding: 15px 0 15px 15px;">Nguyễn Ân</td>
                                     <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
                                     <td style="padding: 15px 0 15px 15px;">2</td>
-                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">Xem hóa đơn</td>
+                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
-                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
-                                    <td style="padding: 15px 0 15px 15px;">7</td>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">     
                                     <td style="padding: 15px 0 15px 15px;">Thanh Điền</td>
                                     <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
                                     <td style="padding: 15px 0 15px 15px;">2</td>
-                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">Xem hóa đơn</td>
+                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
-                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
-                                    <td style="padding: 15px 0 15px 15px;">8</td>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">     
                                     <td style="padding: 15px 0 15px 15px;">Trọng Hiếu</td>
                                     <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
                                     <td style="padding: 15px 0 15px 15px;">2</td>
-                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">Xem hóa đơn</td>
+                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
-                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
-                                    <td style="padding: 15px 0 15px 15px;">9</td>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">     
                                     <td style="padding: 15px 0 15px 15px;">Thanh</td>
                                     <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
                                     <td style="padding: 15px 0 15px 15px;">2</td>
-                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">Xem hóa đơn</td>
+                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
-                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
-                                    <td style="padding: 15px 0 15px 15px;">10</td>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">     
                                     <td style="padding: 15px 0 15px 15px;">Ngọc Hân</td>
                                     <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
                                     <td style="padding: 15px 0 15px 15px;">2</td>
-                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">Xem hóa đơn</td>
+                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
-                                <!-- <tr class="product sum">
+                                <tr class="product sum">
                                     <td colspan="5" class="tong">Tổng</td>
                                     <td>6</td>
-                                </tr> -->
+                                </tr>
                             </table>
                             <div class="pagination">
                                 <a onclick="showThongke4()">&lt;</a>
@@ -521,55 +503,49 @@
                             </div>
                             
                             <table style="width: 100%;margin: 40px 0;">
-                                <!--noi dung tieu de-->
                                 <tr class="title">
                                     <th>Mã đơn hàng</th>
                                     <th>Tên Khách Hàng</th>
                                     <th>Địa chỉ</th>
                                     <th>Số Sản Phẩm Đã Mua</th>
-                                    
-                                    <th>Xem hóa đơn</th>
+                                    <th>Bán nhanh nhất</th>
+                                    <th>Bán ế nhất</th>
+                                    <th showDetailListUser()>Xem hóa đơn</th>
                                 </tr>
-                                <!--noi dung cac san pham-->
-                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
-                                    <td style="padding: 15px 0 15px 15px;">11</td>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">     
                                     <td style="padding: 15px 0 15px 15px;">Nguyễn Ân</td>
                                     <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
                                     <td style="padding: 15px 0 15px 15px;">2</td>
-                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">Xem hóa đơn</td>
+                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
-                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
-                                    <td style="padding: 15px 0 15px 15px;">12</td>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">     
                                     <td style="padding: 15px 0 15px 15px;">Thanh Điền</td>
                                     <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
                                     <td style="padding: 15px 0 15px 15px;">2</td>
-                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">Xem hóa đơn</td>
+                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
-                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
-                                    <td style="padding: 15px 0 15px 15px;">13</td>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">     
                                     <td style="padding: 15px 0 15px 15px;">Trọng Hiếu</td>
                                     <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
                                     <td style="padding: 15px 0 15px 15px;">2</td>
-                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">Xem hóa đơn</td>
+                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
-                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
-                                    <td style="padding: 15px 0 15px 15px;">14</td>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">     
                                     <td style="padding: 15px 0 15px 15px;">Thanh</td>
                                     <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
                                     <td style="padding: 15px 0 15px 15px;">2</td>
-                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">Xem hóa đơn</td>
+                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
-                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
-                                    <td style="padding: 15px 0 15px 15px;">15</td>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">     
                                     <td style="padding: 15px 0 15px 15px;">Ngọc Hân</td>
                                     <td style="padding: 15px 0 15px 15px;">22/22 Dương Bá Trạc Quận 8 tpHCM</td>
                                     <td style="padding: 15px 0 15px 15px;">2</td>
-                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">Xem hóa đơn</td>
+                                    <td style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailListUser()">Xem hóa đơn</td>
                                 </tr>
-                                <!-- <tr class="product sum">
+                                <tr class="product sum">
                                     <td colspan="5" class="tong">Tổng</td>
                                     <td>6</td>
-                                </tr> -->
+                                </tr>
                             </table>
                             <div class="pagination">
                                 <a onclick="showThongke4()">&lt;</a>
@@ -577,7 +553,7 @@
                                 <a onclick="showThongke5()" class="active">2</a>
                                 <a onclick="showThongke5()">&gt;</a>
                             </div>
-                        </section>
+                        </section> -->
                     </div>
 
                     <!-- Product -->
@@ -678,15 +654,12 @@
                                     <th>Khách hàng</th>
                                     <th>Email</th>
                                     <th>Số điện thoại</th>
-                                    <th>Ngày sinh</th>
                                 </tr>
                                 <tr class="user">
-                                    <td><a href=""><img src="./img/logo.png" alt="per3" style="width: 50px;height: 50px;border-radius: 100%;"></a></td>
+                                    <td><a href=""><img src="./img/avata3.png" alt="per3" style="width: 50px;height: 50px;border-radius: 100%;"></a></td>
                                     <td>Nguyễn Thị C</td>
                                     <td>thic@gmail.com</td>
                                     <td>099888777</td>
-                                    <td>22/02/2002</td>
-                                    
                                 </tr>
                                 <!--noi dung tieu de-->
                             <th>Danh sách sản phẩm</th>
@@ -716,13 +689,82 @@
                                 <td>45.490.000đ</td>
                 
                             </tr>
-                            <tr class="product">
-                                <td colspan="2" class="tong">Tổng</td>
-                                <td></td>
-                                <td>120.490.000đ</td>
-                            </tr>
-                        </table>  
-                    </section>   
+                        </table> 
+                        <br> 
+                        <div>
+                            <div>Địa chỉ: 123 Nguyễn Thị Minh Khai, Quận 1, Tp HCM</div>
+                            <div>Ngày đặt: 1/12/2024</div>
+                            <div class="tong">Tổng tiền: 120.490.000đ</div>
+                        </div>
+                        </section>   
+                    </div>
+                    <div class="admin__listUsser">
+                        <section id="main_listUsser">
+                            <table style="width: 100%;">
+                                <th style="font-size: 28px;">Khách hàng</th>
+                                <tr class="title">
+                                    <th>Avatar</th>
+                                    <th>Khách hàng</th>
+                                    <th>Email</th>
+                                    <th>Số điện thoại</th>
+                                </tr>
+                                <tr class="user">
+                                    <td><a href=""><img src="./img/avata3.png" alt="per3" style="width: 50px;height: 50px;border-radius: 100%;"></a></td>
+                                    <td>Nguyễn Thị C</td>
+                                    <td>thic@gmail.com</td>
+                                    <td>099888777</td>
+                                </tr>
+                                <!--noi dung tieu de-->
+                                <th style="font-size: 28px; padding: 10px 0;">Danh sách đơn hàng</th>
+                                <tr class="title">
+                                    <th>Khách hàng</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Thành tiền</th>
+                                    <th>Thời gian</th>
+                                    <th>Trạng thái</th>
+                                </tr>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td>Nguyễn Thị C</td>
+                                    <td style="padding: 15px 0 15px 15px;">273 An Dương Vương, p4, q5, TP HCM</td>
+                                    <td>11.490.000đ</td>
+                                    <td>2024-01-01</td>
+                                    <td>Chưa nhận</td>
+                                    <td><a style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">View</a></td>
+                                </tr>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td>Nguyễn Thị C</td>
+                                    <td style="padding: 15px 0 15px 15px;">273 An Dương Vương, p4, q5, TP HCM</td>
+                                    <td>11.490.000đ</td>
+                                    <td>2024-01-01</td>
+                                    <td>Đã nhận</td>
+                                    <td><a style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">View</a></td>
+                                </tr>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td>Nguyễn Thị C</td>
+                                    <td style="padding: 15px 0 15px 15px;">273 An Dương Vương, p4, q5, TP HCM</td>
+                                    <td>11.490.000đ</td>
+                                    <td>2024-01-01</td>
+                                    <td>Đã nhận</td>
+                                    <td><a style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">View</a></td>
+                                    <!-- <td >
+                                        <select id="trangthai" class="state">
+                                            <option value="daNhan">Đã nhận</option>
+                                            <option value="chuaNhan">Chưa nhận</option>
+                                            <option value="huy">Hủy</option>
+                                        </select>
+                                    </td> -->
+                                    
+                                </tr>
+                                <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">
+                                    <td>Nguyễn Thị C</td>
+                                    <td style="padding: 15px 0 15px 15px;">273 An Dương Vương, p4, q5, TP HCM</td>
+                                    <td>11.490.000đ</td>
+                                    <td>2024-01-01</td>
+                                    <td>Đã nhận</td>
+                                    <td><a style="padding: 15px 0 15px 15px; color: blue; text-decoration: underline;cursor: pointer;" onclick="showDetailBill()">View</a></td>
+                                </tr>
+                        </table> 
+                        </section>   
                     </div>
                     <!-- Order -->
                     <div class="admin__order">
@@ -759,7 +801,7 @@
                                     <option value="peding">Đang xử lý</option>
                                     <option value="not">Chưa xử lý</option>
                                 </select>
-                                <button style="cursor: pointer; background: #000; color: #fff;font-weight: 700; padding: 2px; border-radius: 5px;text-decoration: none;">Lọc</button>
+                                <button onclick="showToast('success', 'Thành công!', 'Lọc thành công!')" style="cursor: pointer; background: #000; color: #fff;font-weight: 700; padding: 2px; border-radius: 5px;text-decoration: none;">Lọc</button>
                             </div>
                         </div>
 

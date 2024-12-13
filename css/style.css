@@ -516,7 +516,13 @@
     background-color: #0071e3;
     cursor: pointer;
 }
-
+.listAddress{
+    display:none;
+    padding: 0 16px;
+}
+.addListAddress{
+    display:none;
+}
 /* Order */
 .order__box {
     display: flex;

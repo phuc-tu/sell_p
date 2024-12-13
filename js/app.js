@@ -13,6 +13,21 @@ function getCategory() {
     var s = url.split('?')[1];
     return s;
 }
+function swapListAddress(index) {
+    
+    document.querySelector(".cart__form").style.display="none"
+    if(index===1){
+        console.log('index1', index)
+        document.querySelector(".listAddress").style.display="block"
+    }
+    if(index===2){
+        console.log('index2', index)
+        document.querySelector(".listAddress").style.display="none"
+        document.querySelector(".addListAddress").style.display="block"
+    }
+    
+    
+}
 
 // Convert price
 function covertPriceToNumber(price) {

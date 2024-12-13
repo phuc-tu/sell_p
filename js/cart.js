@@ -79,6 +79,10 @@ function htmlOrderProduct(orderItem, array) {
                     <h3>Tổng tiền</h3>
                     <span>${total}</span>
                 </div>
+                 <div class="order__box-item" style="flex: 2">
+                    <h3>Địa chỉ giao hàng</h3>
+                    <span style="text-align: start;">273 An Dương Vương, p4, q5, TP Hồ Chí Minh</span>
+                </div>
                 <div class="order__box-item">
                     <h3>Ngày đặt hàng</h3>
                     <span>${orderItem.orderDate}</span>

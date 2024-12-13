@@ -69,17 +69,22 @@ function htmlAdminOrder(orderItem, array) {
                     <h3>Ngày đặt hàng</h3>
                     <span>${orderItem.orderDate}</span>
                 </div>
-                <div class="order__box-item order__status">
-                    <span class="status ${switchActive}">${status}</span>
+                <div class="order__box-item order__status" style="display: flex;flex-direction: row;gap:8px;     align-items: center;">
+                        <select class="status ${switchActive}">
+                            <option value="pending" ${switchActive === '' ? 'selected' : ''}" class="status">Chưa xử lý</option>
+                            <option value="completed" ${switchActive === 'actives' ? 'selected' : ''} class="status actives">Đang xử lý</option>
+                            <option value="canceled" ${switchActive === 'active' ? 'selected' : ''}" class="status active">Đã xử lý</option>
+                        </select>
+                        <p style="background: red; padding: 7px; border:none; border-radius: 5px;cursor:pointer" onclick="showToast('success', 'Thành công!', 'Lưu thành công!')">Lưu</p>
+                    </div>
                 </div>
-            </div>
-
+                        
             <div class="order_detail scrollbar" value="${orderItem.orderID}">
                 <div class="order__user-info">
                     <h3>THÔNG TIN KHÁCH HÀNG:</h3>
                     <div class="order__user-info-box">
                         <span><b>Họ tên:</b> ${orderItem.userAccount.userFullName}</span>
-                        <span><b>Địa chỉ:</b> ${orderItem.userAccount.userAddress}</span>
+                        <span><b>Địa chỉ:</b> 123 Nguyễn Thị Minh Khai, Quận 1, Tp HCM</span>
                         <span><b>Số điện thoại:</b> ${orderItem.userAccount.userPhone}</span>
                     </div>
                 </div>
@@ -92,7 +97,6 @@ function htmlAdminOrder(orderItem, array) {
     `;
     return html;
 }
-
 setEndDate();
 function setEndDate() {
     var endDate = document.getElementById('end-date');
@@ -141,15 +145,26 @@ function showDetailBill(){
     statisticsPage.style.display = 'none';
     userPage.style.display = 'none';
     detailBill.style.display = 'block';
-    showCurrentContent('bill');
+    detailListUser.style.display = 'none';
+    
+}
+function showDetailListUser(){
+    orderPage.style.display = 'none';
+    productPage.style.display = 'none';
+    statisticsPage.style.display = 'none';
+    userPage.style.display = 'none';
+    detailBill.style.display = 'none';
+    detailListUser.style.display = 'block';
 }
 function showAdminOrder() {
-    showCurrentContent('order');
+    
+    showCurrentContent("order")
     orderPage.style.display = 'block';
     productPage.style.display = 'none';
     statisticsPage.style.display = 'none';
     userPage.style.display = 'none';
     detailBill.style.display = 'none';
+    detailListUser.style.display = 'none';
     var status = document.querySelector('.admin__order-status select');
     for (var i = 0; i < status.options.length; i++) {
         if (status.options[i].selected == true) {
@@ -182,6 +197,7 @@ function showAdminOrder() {
     }
 
 }
+
 
 function showAdminOrderDetail(id) {
     var showProduct;

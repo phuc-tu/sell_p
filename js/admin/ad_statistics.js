@@ -31,6 +31,7 @@ function getTotalOrderPrice() {
 showStatisticsPage();
 function showStatisticsPage() {
     detailBill.style.display = 'none';
+    detailListUser.style.display = 'none';
     statisticsPage.style.display = 'block';
     orderPage.style.display = 'none';
     productPage.style.display = 'none';
@@ -38,14 +39,14 @@ function showStatisticsPage() {
     const thongke2 = document.querySelector(".thongke2")
     const thongke3 = document.querySelector(".thongke3")
     const thongke4 = document.querySelector(".thongke4")
-    const thongke5 = document.querySelector(".thongke5")
-    const thongke6 = document.querySelector(".thongke6")
+    // const thongke5 = document.querySelector(".thongke5")
+    // const thongke6 = document.querySelector(".thongke6")
     thongke2.style.display = "none"
     thongke3.style.display = "none"
     thongke1.style.display = "block"
     thongke4.style.display = "none"
-    thongke5.style.display = "none"
-    thongke6.style.display = "none"
+    // thongke5.style.display = "none"
+    // thongke6.style.display = "none"
     userPage.style.display = 'none';
     showCurrentContent('statisticsProduct');
     document.querySelector('.admin__content-header h3').innerHTML = 'Thống kê';
@@ -54,18 +55,19 @@ function showStatisticsPage1() {
     statisticsPage.style.display = 'block';
     orderPage.style.display = 'none';
     productPage.style.display = 'none';
+    detailListUser.style.display = 'none';
     const thongke1 = document.querySelector(".thongke1")
     const thongke2 = document.querySelector(".thongke2")
     const thongke3 = document.querySelector(".thongke3")
     const thongke4 = document.querySelector(".thongke4")
-    const thongke5 = document.querySelector(".thongke5")
-    const thongke6 = document.querySelector(".thongke6")
+    // const thongke5 = document.querySelector(".thongke5")
+    // const thongke6 = document.querySelector(".thongke6")
     thongke2.style.display = "none"
     thongke3.style.display = "none"
     thongke1.style.display = "none"
     thongke4.style.display = "block"
-    thongke5.style.display = "none"
-    thongke6.style.display = "none"
+    // thongke5.style.display = "none"
+    // thongke6.style.display = "none"
     userPage.style.display = 'none';
     showCurrentContent('statisticsUser');
     document.querySelector('.admin__content-header h3').innerHTML = 'Thống kê';
@@ -86,22 +88,22 @@ function showThongke2(){
     thongke1.style.display = "none"
      thongke3.style.display = "none"
 }
-function showThongke4(){
-    const thongke4 = document.querySelector(".thongke4")
-    const thongke5 = document.querySelector(".thongke5")
-    const thongke6 = document.querySelector(".thongke6")
-    thongke5.style.display = "none"
-    thongke6.style.display = "none"
-    thongke4.style.display = "block"
-}
-function showThongke5(){
-    const thongke4 = document.querySelector(".thongke4")
-    const thongke5 = document.querySelector(".thongke5")
-    const thongke6 = document.querySelector(".thongke6")
-    thongke5.style.display = "block"
-    thongke6.style.display = "none"
-    thongke4.style.display = "none"
-}
+// function showThongke4(){
+//     const thongke4 = document.querySelector(".thongke4")
+//     const thongke5 = document.querySelector(".thongke5")
+//     const thongke6 = document.querySelector(".thongke6")
+//     thongke5.style.display = "none"
+//     thongke6.style.display = "none"
+//     thongke4.style.display = "block"
+// }
+// function showThongke5(){
+//     const thongke4 = document.querySelector(".thongke4")
+//     const thongke5 = document.querySelector(".thongke5")
+//     const thongke6 = document.querySelector(".thongke6")
+//     thongke5.style.display = "block"
+//     thongke6.style.display = "none"
+//     thongke4.style.display = "none"
+// }
 function showThongkeSpTheoTen(){
     const thongke4 = document.querySelector(".thongke4")
     const thongke5 = document.querySelector(".thongke5")

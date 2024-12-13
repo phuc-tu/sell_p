@@ -124,31 +124,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="header__admin">
-                                    <span>Admin</span>
-                                    <div class="header__group-menu">
-                                        <div
-                                            class="header__admin-interface"
-                                            onclick="ToAdminPage()"
-                                        >
-                                            Trang quản trị
-                                        </div>
-                                        <a
-                                            href="index.html?order"
-                                            class="header__user-order"
-                                            onclick="showOrderPage()"
-                                            >Đơn hàng của bạn</a
-                                        >
-                                        <div
-                                            id="log-out"
-                                            class="header__log-out"
-                                            onclick="LogOut()"
-                                        >
-                                            Đăng xuất
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
 
                             <!-- Mobile & Tablet-->
@@ -533,6 +508,7 @@
                                                 id="fullname"
                                                 class="cart__form-info-input"
                                                 type="text"
+                                                value="Xin chào"
                                                 placeholder="Nhập họ tên"
                                                 required
                                             />
@@ -547,6 +523,7 @@
                                                 id="phone"
                                                 class="cart__form-info-input"
                                                 type="text"
+                                                value="0795718425"
                                                 placeholder="Nhập số điện thoại"
                                                 required
                                             />
@@ -556,19 +533,16 @@
                                             >
                                         </div>
                                         <div class="cart__form-info-box">
-                                            <label
-                                                for="address"
-                                                class="cart__form-info-lable"
-                                                >Địa chỉ: *</label
-                                            >
-                                            <input
-                                                id="address"
-                                                class="cart__form-info-input"
-                                                type="text"
-                                                placeholder="Nhập địa chỉ"
-                                                required
-                                            />
+                                            <div class="address">
+                                                <div class="title" style="color: red; font-weight: 700;"><i class="uil uil-location-point" style="margin-right: 10px;"></i>Địa chỉ nhận hàng</div>
+                                                <div class="firstEle" style="display: flex; align-items: center;justify-content: space-between; margin: 10px 0;">
+                                                    <p>Xin chào | SĐT: 0386 053 241</p>
+                                                    <p>Địa chỉ: 273 An Dương Vương, p4, q5, TP Hồ Chí Minh</p>
+                                                    <p style="color: blue; text-decoration: none;cursor: pointer;" onclick="swapListAddress(1)">Thay đổi</p>
+                                                </div>
+                                            </div>
                                         </div>
+                                       
                                     </div>
 
                                     <div class="cart__form-select">
@@ -609,6 +583,87 @@
                                         Đặt hàng
                                     </button>
                                 </form>
+                                <section class="listAddress">
+                                    <h2>Địa chỉ</h2>
+                                    <div class="address" style="padding: 5px;display: flex; gap: 10px; margin-top: 10px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;" >
+                                        <input type="radio" class="radio-button" name="address-option" id="option1" value="option1" checked>
+                                        <div class="detail">
+                                            <p><strong>Nhom10</strong> | 0386 053 241</p>
+                                            <p>120 Nguyễn Trãi, p2, q5, TP Hồ Chí Minh</p>
+                                        </div>
+                                        <p class="default" style="display: flex;align-items: center;justify-content: center;color: red; border: 1px solid red; padding: 5px 20px; border-radius: 2px; font-weight: 700;">Mặc định</p>
+                                    </div>
+                                    <div class="address" style="padding: 5px;display: flex; gap: 10px; margin-top: 10px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;" >
+                                        <input type="radio" class="radio-button" name="address-option" id="option1" value="option1">
+                                        <div class="detail">
+                                            <p><strong>Nhom10</strong> | 0386 053 241</p>
+                                            <p>558 Trần Hưng Đạo, p2, q5, TP Hồ Chí Minh</p>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <p onclick="swapListAddress(2)" style="color: red; text-decoration: none;cursor: pointer;">
+                                        <i class="uil uil-plus-circle"></i>
+                                        Thêm địa chỉ mới
+                                    </p>
+                                    <br>
+                                    <br>
+                                    <button onclick="showToast('success', 'Thành công!', `Chọn địa chỉ thành công`);setTimeout(() => { window.location.href = 'index.html?cart'; }, 1000);"  style="background: blue;color: #fff;font-weight: 700;border: none; border-radius: 5px; padding: 10px;">XÁC NHẬN</button>
+                                </section>
+                                <section class="addListAddress" style="padding: 16px;">
+                                    <h1>Địa Chỉ Mới</h1>
+                                    <div class="cart__form-info" style="display: block;">
+                                        <div class="cart__form-info-box">
+                                            <label
+                                                for="fullname"
+                                                class="cart__form-info-lable"
+                                                >Họ tên:</label
+                                            >
+                                            <input
+                                                id="fullname"
+                                                class="cart__form-info-input"
+                                                type="text"
+                                                value="Xin chào"
+                                                placeholder="Nhập họ tên"
+                                                required
+                                            />
+                                        </div>
+                                        <div class="cart__form-info-box">
+                                            <label
+                                                for="phone"
+                                                class="cart__form-info-lable"
+                                                >Số điện thoại: *</label
+                                            >
+                                            <input
+                                                id="phone"
+                                                class="cart__form-info-input"
+                                                type="text"
+                                                value="0795718425"
+                                                placeholder="Nhập số điện thoại"
+                                                required
+                                            />
+                                            <span class="error-phone"
+                                                >Số điện thoại phải có 10 chữ
+                                                số</span
+                                            >
+                                        </div>
+                                        <div class="cart__form-info-box">
+                                            <label
+                                                for="fullname"
+                                                class="cart__form-info-lable"
+                                                >Địa chỉ:</label
+                                            >
+                                            <input
+                                                id="fullname"
+                                                class="cart__form-info-input"
+                                                type="text"
+                                                value="Xin chào"
+                                                placeholder="Nhập họ tên"
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                    <a href="index.html?cart" ><button class="cart__buy-btn">HOÀN THÀNH</button></a>
+                                </section>
                             </div>
                         </div>
                     </div>
@@ -969,7 +1024,7 @@
                     } else if (s[1] == "cart") {
                         showCartProduct();
                     } else if (s[1] == "search") {
-                        showSearchProduct(1);
+                        showProduct(1);
                     } else if (s[1] == "advSearch") {
                         showAdvSearch();
                     } else {

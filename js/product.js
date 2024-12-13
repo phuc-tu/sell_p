@@ -243,27 +243,22 @@ function showProductDetail() {
                 </div>
                 <div class="product__detail-policy">
                     <div class="product__detail-policy-item">
-                        <i class="uil uil-box"></i>
-                        <span class="product__detail-policy-text">Bộ sản phẩm gồm: Hộp, Sách hướng dẫn, Cây lấy sim, Cáp Lightning - Type C</span>
+                        <span class="product__detail-policy-text">Chip: Exynos 1480 8 nhân</span>
                     </div>
                     <div class="product__detail-policy-item">
-                        <i class="uil uil-sync"></i>
-                        <span class="product__detail-policy-text">Hư gì đổi nấy trong 12 tháng</span>
+                        <span class="product__detail-policy-text">RAM: 12 GB</span>
                     </div>
                     <div class="product__detail-policy-item">
-                        <i class="uil uil-shield-check"></i>
-                        <span class="product__detail-policy-text">Bảo hành chính hãng 2 năm</span>
+                        <span class="product__detail-policy-text">Dung lượng: 256 GB</span>
                     </div>
                     <div class="product__detail-policy-item">
-                        <i class="uil uil-truck"></i>
-                        <span class="product__detail-policy-text">Giao hàng nhanh toàn quốc</span>
+                        <span class="product__detail-policy-text">Camera sau: Chính 50 MP & Phụ 12 MP, 5 MP</span>
                     </div>
                     <div class="product__detail-policy-item">
-                        <i class="uil uil-phone"></i>
-                        <span class="product__detail-policy-text">
-                            Tổng đài:
-                            <a href="tel:0976124506" class="product__detail-phone">0976124506</a>                                      
-                        </span>
+                        <span class="product__detail-policy-text">Camera sau: Camera trước: 32 MP</span>
+                    </div>
+                      <div class="product__detail-policy-item">
+                        <span class="product__detail-policy-text">Pin 5000 mAh, Sạc 25 W</span>
                     </div>
                 </div>
                 <div class="product__detail-pay">

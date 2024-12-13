@@ -734,7 +734,9 @@ tr {
 .order_detail.active {
     max-height: 200px;
 }
-
+.admin__listUsser{
+    display:none;
+}
 .order__user-info {
     display: flex;
     align-items: center;
