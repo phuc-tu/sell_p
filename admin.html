@@ -776,40 +776,41 @@
                             <div class="admin__order-date">
                                 <h3>Khoảng thời gian:</h3>
                                 <label for="start-date">Từ</label>
-                                <input
-                                    type="date"
-                                    id="start-date"
-                                    value="2024-10-18"
-                                    min="2024-10-18"
-                                    onchange="showAdminOrder()"
-                                />
+                                <input type="date" id="start-date" value="2024-10-18" min="2024-10-18" onchange="showAdminOrder()" />
                                 <label for="end-date">đến</label>
-                                <input
-                                    type="date"
-                                    id="end-date"
-                                    value=""
-                                    min="2024-10-18"
-                                    onchange="showAdminOrder()"
-                                />
+                                <input type="date" id="end-date" value="" min="2024-10-18" onchange="showAdminOrder()" />
                             </div>
-
+                    
                             <div class="admin__order-status">
                                 <h3>Tình trạng:</h3>
-                                <select
-                                    name=""
-                                    id=""
-                                  
-                                >
+                                <select name="" id="">
                                     <option value="all" selected>Tất cả</option>
                                     <option value="done">Đã xử lý</option>
                                     <option value="peding">Đang xử lý</option>
                                     <option value="not">Chưa xử lý</option>
                                 </select>
-                                <button onclick="showToast('success', 'Thành công!', 'Lọc thành công!')" style="cursor: pointer; background: #000; color: #fff;font-weight: 700; padding: 2px; border-radius: 5px;text-decoration: none;">Lọc</button>
+                            </div>
+                    
+                            <div class="admin__order-sort">
+                                <h3>Sắp xếp theo quận:</h3>
+                                <!-- <div style="display: flex; gap: 10px; align-items: center;"> -->
+                                    <select id="sort-district" onchange="sortByDistrict()">
+                                        <div style="display: flex; gap: 10px; align-items: center;"></div>
+                                        <option value="none">Không sắp xếp</option>
+                                        <option value="asc">Sắp xếp tăng dần</option>
+                                        <option value="desc">Sắp xếp giảm dần</option>
+                                    </select>
+                                </div>
+                            </div>
+                    
+                            <div class="admin__order-filter-action">
+                                <button onclick="showToast('success', 'Thành công!', 'Lọc thành công!')" style="cursor: pointer; background:blue; color: #fff; font-weight: 700; padding: 8px 15px; border-radius: 5px; text-decoration: none;">Lọc</button>
                             </div>
                         </div>
-
+                    
                         <div class="admin__order-wrapper"></div>
+                    </div>
+                    
 
                         <!-- Order empty -->
                         <div class="empty admin__order-empty">
