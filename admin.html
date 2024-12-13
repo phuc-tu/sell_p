@@ -360,25 +360,28 @@
                                     <option value="MacBook">MacBook</option>
                                     <option value="AppleWatch">AppleWatch</option>
                                 </select> -->
-                                <span style="font-weight: 700;">Top 5 khách hàng mua nhiều nhất</span>
+                                <span style="font-weight: 700; font-size: 24px;color:blue">Top 5 khách hàng mua nhiều nhất</span>
+
                                 <br>
                                 <div class="date">
-                                    <label for="start">Từ ngày: </label>
+                                    <label for="start" style="font-size: 18px;">Từ ngày: </label>
                                     <input type="date" id="start" name="start" value="2023-11-24" min="2018-01-01" max="2023-12-31">
-                                    <label for="start">đến </label>
+                                    <label for="start" style="font-size: 18px;">đến </label>
                                     <input type="date" id="end" name="end" value="2023-11-30" min="2018-01-01" max="2023-12-31">
                                 </div>
+                                
                                 <!-- <a onclick="showThongkeSpTheoTen()" style="cursor: pointer; background: #000; color: #fff;font-weight: 700; padding: 2px; border-radius: 5px;text-decoration: none;" class="thongKe"></i>Thống kê</a> -->
                             </div>
                             
                             <table style="width: 100%;margin: 40px 0;">
                                 <!--noi dung tieu de-->
                                 <tr class="title">
-                                    <th>Tên Khách Hàng</th>
-                                    <th>Địa chỉ</th>
-                                    <th>Số Sản Phẩm Đã Mua</th>
-                                    <th showDetailListUser()>Xem hóa đơn</th>
+                                    <th style="color: blue;">Tên Khách Hàng</th>
+                                    <th style="color: blue;">Địa chỉ</th>
+                                    <th style="color: blue;">Số Sản Phẩm Đã Mua</th>
+                                    <th style="color: blue;" onclick="showDetailListUser()">Xem hóa đơn</th>
                                 </tr>
+                                
                                 <!--noi dung cac san pham-->
                                 <tr class="product" style="font-size: 16px;box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;border-radius: 4px;">     
                                     <td style="padding: 15px 0 15px 15px;">Nguyễn Ân</td>
@@ -603,7 +606,7 @@
                                         <th
                                             class="admin__product-list-header-item"
                                         >
-                                            Chi tiết loại sản phẩm
+                                            Mô tả sản phẩm
                                         </th>
                                         <th
                                             class="admin__product-list-header-item"
@@ -657,7 +660,7 @@
                                 </tr>
                                 <tr class="user">
                                     <td><a href=""><img src="./img/avata3.png" alt="per3" style="width: 50px;height: 50px;border-radius: 100%;"></a></td>
-                                    <td>Nguyễn Thị C</td>
+                                    <td>Nguyễn Thị</td>
                                     <td>thic@gmail.com</td>
                                     <td>099888777</td>
                                 </tr>
@@ -963,13 +966,13 @@
                                     <label
                                         for="product-detail-category"
                                         class="control-form__form-lable"
-                                        >Chi tiết loại sản phẩm</label
+                                        >Mô tả sản phẩm</label
                                     >
                                     <input
                                         id="product-detail-category"
                                         type="text"
                                         class="control-form__form-input"
-                                        placeholder="Nhập chi tiết loại sản phẩm"
+                                        placeholder="Nhập mô tả sản phẩm"
                                         required
                                     />
                                 </div>
@@ -1110,13 +1113,13 @@
                                     <label
                                         for="product-detail-category"
                                         class="control-form__form-lable"
-                                        >Chi tiết loại sản phẩm</label
+                                        >Mô tả sản phẩm</label
                                     >
                                     <input
                                         id="product-detail-category"
                                         type="text"
                                         class="control-form__form-input"
-                                        placeholder="Nhập chi tiết loại sản phẩm"
+                                        placeholder="Nhập mô tả sản phẩm"
                                         required
                                     />
                                 </div>
